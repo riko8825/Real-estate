@@ -443,8 +443,9 @@ nav.scrolled {
 }
 .hero-title em { font-style: italic; color: var(--c-gold); }
 .hero-subtitle {
-  font-size: 1rem; color: rgba(255,255,255,.68); max-width: 600px;
-  margin: 0 auto 48px; font-weight: 300; letter-spacing: .02em;
+  font-size: 1.2rem; color: rgba(255,255,255,.95); max-width: 720px;
+  margin: 0 auto 48px; font-weight: 400; letter-spacing: .015em; line-height: 1.6;
+  text-shadow: 0 2px 12px rgba(0,0,0,.6);
   opacity: 0; transform: translateY(20px); animation: fadeUp .9s .7s forwards;
 }
 .hero-actions {
@@ -581,7 +582,7 @@ section { padding: 120px 60px; }
 
 /* SERVICES */
 .services { background: var(--c-black); }
-.services-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--c-border); border: 1px solid var(--c-border); }
+.services-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1px; background: var(--c-border); border: 1px solid var(--c-border); }
 .service-card { background: var(--c-dark); padding: 52px 40px; position: relative; overflow: hidden; transition: background var(--transition); }
 .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--c-gold); transition: width var(--transition); }
 .service-card:hover::before { width: 100%; }
@@ -593,6 +594,12 @@ section { padding: 120px 60px; }
 .service-card:hover .service-num { color: rgba(212,175,55,.14); }
 .service-title { font-size: .9rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; }
 .service-desc { font-size: .82rem; color: var(--c-muted); line-height: 1.75; font-weight: 300; }
+
+/* WHY US */
+.why-us { background: var(--color-bg); }
+.why-us-inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; }
+.why-us-text { font-size: var(--font-md); color: var(--color-text-body); line-height: var(--leading-loose); margin-bottom: var(--space-6); }
+.why-us-text:last-child { margin-bottom: 0; }
 
 /* WHY PATTAYA */
 .why-pattaya { background: var(--c-deep); }
@@ -787,7 +794,7 @@ footer { background: var(--c-black); border-top: 1px solid var(--c-border); padd
   .properties-grid { grid-template-columns: 1fr 1fr; }
   .property-card:first-child { grid-row: span 1; }
   .property-card:first-child .property-img { aspect-ratio: 4/3; height: auto; }
-  .services-grid { grid-template-columns: 1fr 1fr; }
+  .services-grid { grid-template-columns: repeat(3,1fr); }
   .why-grid { grid-template-columns: 1fr 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
@@ -798,6 +805,7 @@ footer { background: var(--c-black); border-top: 1px solid var(--c-border); padd
   .about-inner { grid-template-columns: 1fr; }
   .about-text { padding: 60px 48px; }
   .about-visual { height: 480px; }
+  .why-us-inner { grid-template-columns: 1fr; gap: var(--space-10); }
   .contact-inner { grid-template-columns: 1fr; gap: 60px; }
   .locations-grid { grid-template-columns: 1fr; }
   .locations-visual { height: 280px; }
@@ -857,6 +865,7 @@ footer { background: var(--c-black); border-top: 1px solid var(--c-border); padd
   </a>
   <ul class="nav-links">
     <li><a href="#properties">Properties</a></li>
+    <li><a href="sell-rent.html">Sell &amp; Rent</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#why-pattaya">Why Pattaya</a></li>
@@ -873,6 +882,7 @@ footer { background: var(--c-black); border-top: 1px solid var(--c-border); padd
     <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
   </button>
   <a href="#properties" onclick="closeMobile()">Properties</a>
+  <a href="sell-rent.html">Sell &amp; Rent</a>
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#services" onclick="closeMobile()">Services</a>
   <a href="#why-pattaya" onclick="closeMobile()">Why Pattaya</a>
@@ -887,44 +897,43 @@ footer { background: var(--c-black); border-top: 1px solid var(--c-border); padd
   <div class="hero-content">
     <p class="hero-eyebrow">Pattaya · Thailand · Est. 2009</p>
     <h1 class="hero-title">
-      Discover Your<br><em>Dream Villa</em><br>in Pattaya
+      Find Your<br><em>Place</em><br>in Pattaya
     </h1>
     <p class="hero-subtitle">
-      Buy, Sell &amp; Rent Luxury Pool Villas, Condos &amp; Houses in Pattaya, Thailand
+      Whether you're moving, investing, or searching for a <strong style="color: var(--color-primary); font-weight: 600;">Pattaya Property</strong>, we help you find the right property with local insight and personalized service.
     </p>
     <div class="hero-actions">
-      <a href="#properties" class="btn-primary">View Listings</a>
-      <a href="#contact" class="btn-secondary">Free Consultation</a>
+      <a href="#properties" class="btn-primary">Explore Properties</a>
+      <a href="#contact" class="btn-secondary">Contact Us</a>
     </div>
   </div>
   <div class="hero-scroll-hint">
-    <span>Explore</span>
     <div class="scroll-line"></div>
   </div>
 </section>
 
 <div class="marquee-strip" aria-hidden="true">
   <div class="marquee-track" id="marqueeTrack">
-    <span>Pratumnak Hill</span>
-    <span>Jomtien Beach</span>
-    <span>Na Kluea</span>
-    <span>East Pattaya</span>
-    <span>Pattaya Beach</span>
-    <span>Banglamung</span>
-    <span>Pratumnak Hill</span>
-    <span>Jomtien Beach</span>
-    <span>Na Kluea</span>
-    <span>East Pattaya</span>
-    <span>Pratumnak Hill</span>
-    <span>Jomtien Beach</span>
-    <span>Na Kluea</span>
-    <span>East Pattaya</span>
-    <span>Pattaya Beach</span>
-    <span>Banglamung</span>
-    <span>Pratumnak Hill</span>
-    <span>Jomtien Beach</span>
-    <span>Na Kluea</span>
-    <span>East Pattaya</span>
+    <span>Pratumnak Condo</span>
+    <span>Jomtien Condo</span>
+    <span>Wongamat Condo</span>
+    <span>Central Pattaya Condo</span>
+    <span>Naklua Condo</span>
+    <span>Luxury Condo Wongamat</span>
+    <span>Pool Villa Jomtien</span>
+    <span>Pratumnak Condo</span>
+    <span>Jomtien Condo</span>
+    <span>Wongamat Condo</span>
+    <span>Central Pattaya Condo</span>
+    <span>Naklua Condo</span>
+    <span>Luxury Condo Wongamat</span>
+    <span>Pool Villa Jomtien</span>
+    <span>Pratumnak Condo</span>
+    <span>Jomtien Condo</span>
+    <span>Wongamat Condo</span>
+    <span>Central Pattaya Condo</span>
+    <span>Naklua Condo</span>
+    <span>Luxury Condo Wongamat</span>
   </div>
 </div>
 
@@ -932,7 +941,7 @@ footer { background: var(--c-black); border-top: 1px solid var(--c-border); padd
   <div class="section-header section-header-flex reveal">
     <div>
       <p class="section-eyebrow">Featured Listings</p>
-      <h2 class="section-title">Pattaya's Finest<br>Pool Villas &amp; Condos</h2>
+      <h2 class="section-title">Discover Pattaya's<br>Condos &amp; Pool Villas</h2>
     </div>
     <p class="section-desc" style="max-width:360px">
       Hand-selected properties across Pattaya's most desirable neighbourhoods — for sale, rent, and investment.
@@ -1077,7 +1086,7 @@ footer { background: var(--c-black); border-top: 1px solid var(--c-border); padd
 <section class="about" id="about">
   <div class="about-inner">
     <div class="about-visual" id="aboutVisual">
-      <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=900&q=85&auto=format&fit=crop" alt="Your Holiday Villas team" loading="lazy" width="900" height="675" />
+      <img src="assets/images/poy.png" alt="Poy — Your Holiday Villas" loading="lazy" width="900" height="675" />
       <div class="about-visual-overlay"></div>
       <div class="about-visual-badge">
         <span class="num">15+</span>
@@ -1085,10 +1094,10 @@ footer { background: var(--c-black); border-top: 1px solid var(--c-border); padd
       </div>
     </div>
     <div class="about-text">
-      <p class="section-eyebrow">Our Story</p>
-      <h2 class="section-title reveal">Your Local Pattaya<br><em style="font-style:italic">Property Experts.</em></h2>
+      <p class="section-eyebrow">About</p>
+      <h2 class="section-title reveal">Pattaya Real Estate,<br><em style="font-style:italic">Made Easy.</em></h2>
       <p class="section-desc reveal">
-        With over 15 years experience in Pattaya real estate, our bilingual team speaks English, Thai and Russian to serve our international clients. We specialise in pool villas across Pratumnak, Jomtien, East Pattaya and beyond.
+        We help clients find modern condos, villas, and investment properties that fit their lifestyle, goals, and budget. Simple, transparent, and stress-free.
       </p>
       <div class="stats-grid reveal">
         <div class="stat-item">
@@ -1110,12 +1119,15 @@ footer { background: var(--c-black); border-top: 1px solid var(--c-border); padd
       </div>
       <div class="about-signature reveal">
         <div class="about-avatar">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80&auto=format&fit=crop" alt="Poy &amp; Team" loading="lazy" width="200" height="200" />
+          <img src="assets/images/poy.png" alt="Poy &amp; Team" loading="lazy" width="200" height="200" />
         </div>
         <div class="about-sig-info">
           <p class="name">Poy &amp; Team</p>
           <p class="title">Your Local Pattaya Property Experts</p>
         </div>
+      </div>
+      <div class="about-cta reveal" style="margin-top: var(--space-10)">
+        <a href="#properties" class="btn-outline">View Listings</a>
       </div>
     </div>
   </div>
@@ -1123,41 +1135,57 @@ footer { background: var(--c-black); border-top: 1px solid var(--c-border); padd
 
 <section class="services" id="services">
   <div class="section-header reveal" style="text-align:center">
-    <p class="section-eyebrow" style="justify-content:center">What We Do</p>
-    <h2 class="section-title">Full-Service Pattaya<br>Real Estate Agency</h2>
+    <p class="section-eyebrow" style="justify-content:center">What We Offer</p>
+    <h2 class="section-title">Find the Right Property for<br>Living &amp; Investment</h2>
   </div>
   <div class="services-grid">
     <div class="service-card reveal">
-      <div class="service-num">01</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </div>
-      <h3 class="service-title">Pool Villa Sales</h3>
-      <p class="service-desc">Buy your dream pool villa in Pattaya's most sought-after locations with full expert guidance from search to transfer.</p>
-    </div>
-    <div class="service-card reveal" style="transition-delay:.1s">
-      <div class="service-num">02</div>
       <div class="service-icon">
         <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       </div>
-      <h3 class="service-title">Condo &amp; House Sales</h3>
-      <p class="service-desc">Foreign freehold condos and leasehold houses across all Pattaya areas — from studio units to executive residences.</p>
+      <h3 class="service-title">Monthly &amp; Yearly Condo Rentals</h3>
+      <p class="service-desc">Flexible condo rental terms for expats, digital nomads, and long-stay visitors across all Pattaya areas.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:.1s">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
+      </div>
+      <h3 class="service-title">Investment Properties</h3>
+      <p class="service-desc">Properties selected for rental potential and long-term value growth — focused on returns, not just listings.</p>
     </div>
     <div class="service-card reveal" style="transition-delay:.2s">
-      <div class="service-num">03</div>
       <div class="service-icon">
-        <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
-      <h3 class="service-title">Holiday Rentals</h3>
-      <p class="service-desc">Short &amp; long-term pool villa rentals for tourists and expats. Fully managed properties with flexible terms.</p>
+      <h3 class="service-title">Pool Villas &amp; Holiday Homes</h3>
+      <p class="service-desc">Private pool villas and holiday homes ready for vacation, seasonal stays, or year-round living.</p>
     </div>
     <div class="service-card reveal" style="transition-delay:.3s">
-      <div class="service-num">04</div>
       <div class="service-icon">
         <svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
       </div>
-      <h3 class="service-title">Land &amp; Development</h3>
+      <h3 class="service-title">Land Opportunities</h3>
       <p class="service-desc">Prime land plots for development or private construction across Pattaya and Banglamung district.</p>
+    </div>
+    <div class="service-card reveal" style="transition-delay:.4s">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
+      </div>
+      <h3 class="service-title">Personalized Property Matching</h3>
+      <p class="service-desc">We match properties to your lifestyle, goals, and budget — handpicked, not just filtered from a database.</p>
+    </div>
+  </div>
+</section>
+
+<section class="why-us" id="why-us">
+  <div class="why-us-inner">
+    <div class="why-us-header reveal">
+      <p class="section-eyebrow">Why Work With Us</p>
+      <h2 class="section-title">Local Knowledge.<br><em>Simple Process.</em></h2>
+    </div>
+    <div class="why-us-content reveal">
+      <p class="why-us-text">We know Pattaya beyond the listings — from the best lifestyle areas to investment-focused locations.</p>
+      <p class="why-us-text">Fast communication, carefully selected properties, and support from viewing to move-in or purchase.</p>
     </div>
   </div>
 </section>
@@ -1380,8 +1408,8 @@ footer { background: var(--c-black); border-top: 1px solid var(--c-border); padd
   <div class="contact-inner">
     <div class="contact-info reveal">
       <p class="section-eyebrow">Get in Touch</p>
-      <h2 class="section-title">Find Your<br>Pattaya Property</h2>
-      <p class="section-desc">Whether you want to buy, rent or sell — our team is ready to help. Speak to a local expert today, no obligation.</p>
+      <h2 class="section-title">Let's Find Your<br><em style="font-style:italic">Place in Pattaya.</em></h2>
+      <p class="section-desc">Looking for a condo, villa, or investment opportunity? Get in touch for available listings and personalized recommendations.</p>
       <div class="contact-details">
         <div class="contact-detail-item">
           <div class="contact-detail-icon">

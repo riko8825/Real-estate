@@ -8,7 +8,8 @@
 
 | Slug | File | Title | Purpose | Status |
 |---|---|---|---|---|
-| `/` | `index.html` | Your Holiday Villas Pattaya \| Pool Villas, Condos & Houses For Sale & Rent | All-in-one landing — hero, properties, about, services, why-pattaya, buyer-guide, testimonials, locations, contact | ✅ done |
+| `/` | `index.html` | Your Holiday Villas Pattaya \| Pool Villas, Condos & Houses For Sale & Rent | All-in-one landing — hero, properties, about, services, why-us, why-pattaya, buyer-guide, testimonials, locations, contact | ✅ done |
+| `/sell-rent.html` | `sell-rent.html` | Sell & Rent Properties in Pattaya \| Your Holiday Villas | Listings page with 5-filter bar (type/area/price/bedrooms/property), sort dropdown, 6 placeholder cards. CMS pending. | ⚠️ placeholder content + CMS pending |
 
 ## In-page anchors (current navigation)
 

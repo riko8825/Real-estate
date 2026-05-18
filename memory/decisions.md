@@ -4,6 +4,60 @@ Newest decisions on top. Format: `YYYY-MM-DD — Decision — Reason`.
 
 ---
 
+## 2026-05-18 — Session 2 close: Sanity Studio deployed + content overhaul
+
+**Status snapshot:**
+- Sanity Studio live: https://real-estate-poy.sanity.studio (Project `t4802zzb`)
+- 3 test listings in production dataset
+- sell-rent.html created (Phase 1 — hardcoded placeholders)
+- index.html content updated per client copy from Poy
+- 2 architectures rolled back this session before settling on hybrid:
+  index.html (vanilla single-file) + sell-rent.html (vanilla static) +
+  studio-real-estate-poy/ (Node-based Sanity)
+
+**Self-score: 6/10. Project completion: 55%.**
+
+**Open blockers (need user action):**
+- Invite Poy as Editor: https://www.sanity.io/manage/personal/project/t4802zzb/members (`chabaratree@gmail.com`)
+- Decide deploy target for index.html + sell-rent.html (GitHub Pages / Netlify / Vercel)
+- Commit + push pending (commit message prepared, not executed)
+
+**Next session should pick up:**
+1. Phase 3 — wire `sell-rent.html` to Sanity API (replace hardcoded cards with fetch)
+2. Or: visual QA pass on content changes (test 1024/768/480 breakpoints in browser)
+3. Or: image optimization (poy.png 1.43MB → WebP/squoosh)
+4. CORS config in Sanity Manage when production domain decided
+
+---
+
+## 2026-05-18 — New page `sell-rent.html` + Sanity CMS planned (Phase 1 done)
+
+**Decision:** Created `sell-rent.html` as a separate listings page with 5-filter bar (type / area / price / bedrooms / property) + sort dropdown + 6 placeholder listing cards. Nav menu updated in both `index.html` and `sell-rent.html` to cross-link.
+
+**Architecture (hybrid):**
+- `index.html` — remains single-file landing (no change to that file's structure)
+- `sell-rent.html` — new standalone file. Inline `<style>` + `<script>` (same design tokens copied for consistency, no shared CSS file)
+- Cross-linking: `index.html` nav links to `sell-rent.html`; `sell-rent.html` nav links back to `index.html#section`
+
+**CMS plan (Phase 2 + 3 — not yet implemented):**
+- **Stack:** Sanity.io headless CMS (same as Akva Studio sister project — see memory at `c--Users-pinig-OneDrive-Stalinis-kompiuteris-Automatiomm-empirra-akva-studio`)
+- **Phase 2:** Create `studio/` folder with Sanity Studio, `listing` schema (title, slug, type [sale/rent], area, price THB, price USD, bedrooms, bathrooms, sqm, propertyType [condo/villa/house/land], images, features, description). Deploy studio to `<projectname>.sanity.studio`, invite client as editor.
+- **Phase 3:** Replace placeholder HTML cards with JS fetch from Sanity API (`sanity-client.js` module). Filter logic operates on fetched JSON array. Image CDN: Sanity built-in.
+
+**Reason:** Client (Poy) needs to manage listings themselves without touching code. Sanity gives a free admin panel + structured content + image hosting. Same pattern proven on Akva Studio.
+
+**Impact on existing project rules:**
+- This breaks the "single-file only" rule for the new page — but ONLY the new page. `index.html` stays single-file.
+- When Phase 2/3 happen: introduces `node_modules/`, `package.json`, `studio/` folder (Node-based dev tooling). Listings page will need `<script type="module">` for ES imports.
+- Updated CLAUDE.md needed when Phase 2 starts.
+
+**Phase 1 deliverables (this session):**
+- `sell-rent.html` (969 lines) — full standalone page with design system, nav, filters, 6 cards, footer
+- Nav links added to `index.html` (desktop + mobile menu)
+- CMS-pending banner shown on listings page (will be removed when Sanity is wired)
+
+---
+
 ## 2026-05-18 — Performance basics pass (CLS, LCP, lazy loading)
 
 **Decision:** Audited `index.html` for performance basics. Fixed 3 issues:

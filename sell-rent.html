@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ───────── Core ───────── -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <title>Sell &amp; Rent Properties in Pattaya | Your Holiday Villas</title>
+  <meta name="description" content="Browse condos, pool villas, and houses for sale and rent in Pattaya. Filter by area, price, and bedrooms. Pratumnak, Jomtien, Wongamat, Naklua and more." />
+  <meta name="keywords" content="Pattaya property for sale, Pattaya condo rent, Jomtien condo, Pratumnak villa, Wongamat condo, Pattaya real estate listings" />
+  <meta name="author" content="Your Holiday Villas" />
+
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="googlebot" content="index, follow" />
+
+  <link rel="canonical" href="https://yourholidayvillas.com/sell-rent.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Your Holiday Villas" />
+  <meta property="og:title" content="Sell &amp; Rent Properties in Pattaya | Your Holiday Villas" />
+  <meta property="og:description" content="Browse condos, pool villas, and houses for sale and rent in Pattaya. Filter by area, price, and bedrooms." />
+  <meta property="og:url" content="https://yourholidayvillas.com/sell-rent.html" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://yourholidayvillas.com/assets/images/og-image-home.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sell &amp; Rent Properties in Pattaya | Your Holiday Villas" />
+  <meta name="twitter:description" content="Browse condos, pool villas, and houses for sale and rent in Pattaya." />
+  <meta name="twitter:image" content="https://yourholidayvillas.com/assets/images/og-image-home.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Image CDN preconnect -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+
+  <style>
+/* ============================================================
+   sell-rent.html — Listings page
+   Design tokens + reset + base styles copied from index.html
+   Page-specific styles at the bottom (LISTINGS section)
+   ============================================================ */
+
+:root {
+  /* Colors — semantic */
+  --color-bg:           #0a0a0a;
+  --color-bg-alt:       #111111;
+  --color-bg-elevated:  #1a1a1a;
+  --color-bg-card:      #161616;
+  --color-primary:      #d4af37;
+  --color-primary-hover:#e8c84a;
+  --color-primary-dark: #a88420;
+  --color-secondary:    #2563eb;
+  --color-text:         #ffffff;
+  --color-text-soft:    rgba(255,255,255,.68);
+  --color-text-body:    rgba(255,255,255,.75);
+  --color-text-muted:   rgba(255,255,255,.45);
+  --color-text-subtle:  rgba(255,255,255,.22);
+  --color-border:       rgba(212,175,55,.18);
+  --color-border-soft:  rgba(255,255,255,.06);
+  --color-border-input: rgba(255,255,255,.1);
+  --color-overlay:      rgba(255,255,255,.08);
+  --color-wa:           #25D366;
+  --color-line:         #00B900;
+
+  /* Legacy aliases */
+  --c-black:   #0a0a0a;
+  --c-deep:    #111111;
+  --c-dark:    #1a1a1a;
+  --c-card:    #161616;
+  --c-white:   #ffffff;
+  --c-gold:    #d4af37;
+  --c-gold-lt: #e8c84a;
+  --c-gold-dk: #a88420;
+  --c-blue:    #2563eb;
+  --c-border:  rgba(212,175,55,.18);
+  --c-muted:   rgba(255,255,255,.45);
+  --c-subtle:  rgba(255,255,255,.08);
+
+  /* Typography */
+  --font-family-serif: 'Playfair Display', Georgia, serif;
+  --font-family-sans:  'Inter', system-ui, sans-serif;
+  --ff-serif: 'Playfair Display', Georgia, serif;
+  --ff-sans:  'Inter', system-ui, sans-serif;
+
+  --font-2xs:  0.6rem;
+  --font-xs:   0.68rem;
+  --font-sm:   0.78rem;
+  --font-base: 0.88rem;
+  --font-md:   1rem;
+  --font-lg:   1.1rem;
+  --font-xl:   1.45rem;
+  --font-2xl:  1.6rem;
+  --font-display-section: clamp(2.1rem, 3.8vw, 3.4rem);
+  --font-display-hero:    clamp(2.5rem, 5vw, 4rem);
+
+  --font-weight-light:    300;
+  --font-weight-medium:   500;
+  --font-weight-semi:     600;
+  --font-weight-bold:     700;
+
+  --tracking-tight:   -0.02em;
+  --tracking-wide:     0.06em;
+  --tracking-widest:   0.2em;
+  --tracking-eyebrow:  0.45em;
+
+  --leading-tight:   1.1;
+  --leading-relaxed: 1.7;
+  --leading-loose:   1.8;
+
+  /* Spacing 4px-base */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-7:   28px;
+  --space-8:   32px;
+  --space-9:   36px;
+  --space-10:  40px;
+  --space-11:  44px;
+  --space-12:  48px;
+  --space-13:  52px;
+  --space-14:  60px;
+  --space-15:  72px;
+  --space-16:  80px;
+
+  --radius-xs:   3px;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-pill: 50px;
+  --radius-full: 50%;
+
+  --shadow-gold-md:  0 8px 32px rgba(212,175,55,.3);
+  --shadow-gold-xl:  0 16px 48px rgba(212,175,55,.4);
+  --shadow-card:     0 8px 24px rgba(0,0,0,.4);
+
+  --transition:      .4s cubic-bezier(.25,.46,.45,.94);
+  --transition-fast: .2s ease;
+}
+
+/* RESET */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+input, textarea, select { font: inherit; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--c-black); }
+::-webkit-scrollbar-thumb { background: var(--c-gold-dk); border-radius: 3px; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-light);
+  line-height: var(--leading-relaxed);
+  overflow-x: hidden;
+}
+
+/* NAV (copied from index.html for consistency) */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 24px 60px; display: flex; align-items: center; justify-content: space-between;
+  background: rgba(10,10,10,.93); backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border);
+  transition: padding var(--transition);
+}
+nav.scrolled { padding: 16px 60px; }
+.nav-logo { display: flex; flex-direction: column; gap: 2px; }
+.nav-logo .wordmark {
+  font-family: var(--font-family-serif); font-size: 1.35rem; font-weight: var(--font-weight-semi);
+  letter-spacing: var(--tracking-wide); color: var(--color-primary);
+}
+.nav-logo .tagline {
+  font-size: 0.55rem; letter-spacing: .32em; text-transform: uppercase; color: var(--color-text-muted);
+}
+.nav-links { display: flex; gap: 36px; align-items: center; list-style: none; }
+.nav-links a {
+  font-size: var(--font-sm); letter-spacing: .15em; text-transform: uppercase;
+  color: rgba(255,255,255,.75); position: relative; transition: color var(--transition-fast);
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 1px; background: var(--color-primary); transition: width var(--transition);
+}
+.nav-links a:hover { color: var(--color-primary); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--color-primary); }
+.nav-links a.active::after { width: 100%; }
+.nav-cta {
+  padding: 10px 24px; border: 1px solid var(--color-primary);
+  color: var(--color-primary) !important; font-size: .75rem !important;
+  letter-spacing: .18em !important; text-transform: uppercase !important;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), color var(--transition-fast) !important;
+}
+.nav-cta:hover { background: var(--color-primary); color: var(--color-bg) !important; }
+.nav-cta::after { display: none !important; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; }
+.nav-hamburger span { display: block; width: 24px; height: 1px; background: var(--color-text); transition: var(--transition); }
+
+/* MOBILE MENU */
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(10,10,10,.98); backdrop-filter: blur(20px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 36px;
+  transform: translateX(100%); transition: transform var(--transition);
+}
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a {
+  font-family: var(--font-family-serif); font-size: 2rem; font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-wide); color: rgba(255,255,255,.7); transition: color var(--transition-fast);
+}
+.mobile-menu a:hover { color: var(--color-primary); }
+.mobile-close { position: absolute; top: 28px; right: 28px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+.mobile-close svg { width: 24px; height: 24px; stroke: var(--color-text-muted); fill: none; stroke-width: 1.5; }
+
+/* PAGE HERO (smaller than homepage hero) */
+.page-hero {
+  position: relative; padding: 180px 60px 80px; text-align: center;
+  background:
+    linear-gradient(to bottom, rgba(10,10,10,.7), rgba(10,10,10,.95)),
+    url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=2000&q=80&auto=format&fit=crop') center/cover no-repeat;
+  border-bottom: 1px solid var(--color-border);
+}
+.page-hero-eyebrow {
+  display: inline-flex; align-items: center; gap: var(--space-3);
+  font-size: var(--font-xs); letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase; color: var(--color-primary);
+  margin-bottom: var(--space-5);
+}
+.page-hero-eyebrow::before, .page-hero-eyebrow::after {
+  content: ''; display: block; width: 32px; height: 1px;
+  background: var(--color-primary); opacity: .6;
+}
+.page-hero-title {
+  font-family: var(--font-family-serif); font-size: var(--font-display-hero);
+  font-weight: var(--font-weight-medium); line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight); margin-bottom: var(--space-5);
+}
+.page-hero-title em { font-style: italic; color: var(--color-primary); }
+.page-hero-desc {
+  font-size: var(--font-md); color: var(--color-text-soft);
+  max-width: 640px; margin: 0 auto;
+}
+
+/* FILTERS BAR */
+.filters-section { background: var(--color-bg-alt); padding: 60px 60px 40px; border-bottom: 1px solid var(--color-border); }
+.filters-bar {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-4);
+  max-width: 1400px; margin: 0 auto;
+}
+.filter-group { display: flex; flex-direction: column; gap: var(--space-2); }
+.filter-label {
+  font-size: var(--font-xs); letter-spacing: .25em; text-transform: uppercase;
+  color: var(--color-text-muted); font-weight: var(--font-weight-medium);
+}
+.filter-control,
+.filter-select {
+  background: rgba(255,255,255,.04); border: 1px solid var(--color-border-input);
+  padding: 14px 18px; color: var(--color-text);
+  font-size: var(--font-base); font-weight: var(--font-weight-light);
+  outline: none; transition: border-color var(--transition-fast), background var(--transition-fast);
+  border-radius: var(--radius-sm); appearance: none; -webkit-appearance: none;
+}
+.filter-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23d4af37' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 16px center; padding-right: 44px; cursor: pointer;
+}
+.filter-select option { background: var(--color-bg-elevated); color: var(--color-text); }
+.filter-control:focus, .filter-select:focus { border-color: var(--color-primary); background: rgba(212,175,55,.04); }
+.filter-reset {
+  margin-top: var(--space-6); text-align: center;
+}
+.filter-reset-btn {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: 10px 24px; border: 1px solid var(--color-border);
+  color: var(--color-text-muted); font-size: var(--font-sm);
+  letter-spacing: var(--tracking-widest); text-transform: uppercase;
+  border-radius: var(--radius-sm); transition: var(--transition-fast);
+}
+.filter-reset-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+
+/* LISTINGS GRID */
+.listings-section { background: var(--color-bg); padding: 80px 60px 120px; }
+.listings-header {
+  max-width: 1400px; margin: 0 auto var(--space-12);
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-6);
+}
+.listings-count {
+  font-family: var(--font-family-serif); font-size: var(--font-2xl);
+  font-weight: var(--font-weight-medium); color: var(--color-text);
+}
+.listings-count strong { color: var(--color-primary); font-weight: var(--font-weight-semi); }
+.listings-sort { display: flex; align-items: center; gap: var(--space-3); }
+.listings-sort label {
+  font-size: var(--font-xs); letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase; color: var(--color-text-muted);
+}
+.listings-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8);
+  max-width: 1400px; margin: 0 auto;
+}
+.listing-card {
+  background: var(--color-bg-card); border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-sm); overflow: hidden;
+  transition: transform var(--transition), border-color var(--transition);
+  display: flex; flex-direction: column;
+}
+.listing-card:hover { transform: translateY(-4px); border-color: var(--color-border); }
+.listing-img {
+  position: relative; aspect-ratio: 4/3; overflow: hidden;
+}
+.listing-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .8s cubic-bezier(.25,.46,.45,.94); filter: brightness(.92);
+}
+.listing-card:hover .listing-img img { transform: scale(1.05); filter: brightness(.8); }
+.listing-badge {
+  position: absolute; top: var(--space-4); left: var(--space-4); z-index: 2;
+  padding: 6px 14px; font-size: var(--font-2xs); font-weight: var(--font-weight-semi);
+  letter-spacing: .28em; text-transform: uppercase;
+}
+.listing-badge.for-sale { background: var(--color-primary); color: var(--color-bg); }
+.listing-badge.for-rent { background: var(--color-secondary); color: var(--color-text); }
+.listing-action {
+  position: absolute; top: var(--space-4); right: var(--space-4); z-index: 2;
+  width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.3); border-radius: var(--radius-full);
+  display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.4);
+  backdrop-filter: blur(6px); transition: var(--transition-fast);
+}
+.listing-action:hover { background: var(--color-primary); border-color: var(--color-primary); }
+.listing-action svg { width: 16px; height: 16px; stroke: var(--color-text); fill: none; stroke-width: 1.8; }
+.listing-action:hover svg { stroke: var(--color-bg); }
+
+.listing-body { padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); flex: 1; }
+.listing-price {
+  font-family: var(--font-family-serif); font-size: var(--font-xl);
+  font-weight: var(--font-weight-semi); color: var(--color-primary); line-height: 1.2;
+}
+.listing-price-usd {
+  font-size: var(--font-2xs); color: rgba(212,175,55,.6);
+  letter-spacing: var(--tracking-wide); margin-top: -6px;
+}
+.listing-name {
+  font-size: var(--font-md); font-weight: var(--font-weight-medium);
+  color: var(--color-text); letter-spacing: .02em;
+}
+.listing-loc {
+  font-size: var(--font-sm); color: var(--color-text-muted);
+  letter-spacing: var(--tracking-wide); display: flex; align-items: center; gap: 6px;
+}
+.listing-loc svg { width: 12px; height: 12px; fill: var(--color-primary); opacity: .7; flex-shrink: 0; }
+
+.listing-meta {
+  display: flex; gap: var(--space-4); flex-wrap: wrap;
+  margin-top: auto; padding-top: var(--space-4); border-top: 1px solid var(--color-border-soft);
+  font-size: var(--font-xs); color: var(--color-text-muted); letter-spacing: .05em;
+}
+.listing-meta-item { display: flex; align-items: center; gap: 5px; }
+.listing-meta-item strong { color: var(--color-text); font-weight: var(--font-weight-semi); }
+
+.listing-cta {
+  padding: var(--space-3) var(--space-6); margin-top: var(--space-4);
+  background: transparent; border: 1px solid var(--color-border);
+  color: var(--color-primary); font-size: var(--font-sm);
+  letter-spacing: var(--tracking-widest); text-transform: uppercase;
+  border-radius: var(--radius-sm); text-align: center;
+  transition: var(--transition-fast);
+}
+.listing-cta:hover { background: var(--color-primary); color: var(--color-bg); border-color: var(--color-primary); }
+
+/* EMPTY STATE */
+.listings-empty {
+  text-align: center; padding: var(--space-16) var(--space-6);
+  color: var(--color-text-muted); font-size: var(--font-md);
+  border: 1px dashed var(--color-border); border-radius: var(--radius-md);
+  max-width: 600px; margin: 0 auto;
+}
+.listings-empty svg { width: 48px; height: 48px; stroke: var(--color-primary); fill: none; stroke-width: 1.5; margin-bottom: var(--space-4); opacity: .5; }
+
+/* CMS-PENDING BANNER (placeholder hint) */
+.cms-banner {
+  background: rgba(212,175,55,.08); border: 1px solid var(--color-border);
+  padding: var(--space-4) var(--space-6); border-radius: var(--radius-sm);
+  max-width: 1400px; margin: 0 auto var(--space-10);
+  display: flex; align-items: center; gap: var(--space-4);
+  font-size: var(--font-sm); color: var(--color-text-body);
+}
+.cms-banner svg { width: 18px; height: 18px; stroke: var(--color-primary); fill: none; stroke-width: 1.5; flex-shrink: 0; }
+.cms-banner strong { color: var(--color-primary); }
+
+/* FOOTER (compact version) */
+footer {
+  background: var(--color-bg); border-top: 1px solid var(--color-border);
+  padding: var(--space-12) 60px var(--space-8);
+}
+.footer-inner { max-width: 1400px; margin: 0 auto; }
+.footer-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: var(--space-12); margin-bottom: var(--space-10); flex-wrap: wrap;
+}
+.footer-brand .wordmark {
+  font-family: var(--font-family-serif); font-size: 1.5rem;
+  color: var(--color-primary); letter-spacing: .08em; margin-bottom: 6px;
+}
+.footer-brand .tagline-sm {
+  font-size: var(--font-xs); letter-spacing: .3em; text-transform: uppercase;
+  color: var(--color-primary); opacity: .6;
+}
+.footer-contact {
+  display: flex; flex-direction: column; gap: var(--space-2);
+  font-size: var(--font-sm); color: var(--color-text-muted);
+}
+.footer-contact a { color: var(--color-text-muted); transition: color var(--transition-fast); }
+.footer-contact a:hover { color: var(--color-primary); }
+.footer-bottom {
+  padding-top: var(--space-8); border-top: 1px solid var(--color-border);
+  font-size: var(--font-2xs); color: var(--color-text-subtle); letter-spacing: .06em;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4);
+}
+.footer-bottom a { color: var(--color-primary); }
+
+/* FLOATING BUTTONS (copied from index.html) */
+.floating-btns {
+  position: fixed; bottom: 32px; right: 28px; z-index: 998;
+  display: flex; flex-direction: column; gap: 12px; align-items: flex-end;
+}
+.float-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 20px; border-radius: var(--radius-pill);
+  font-size: var(--font-sm); font-weight: var(--font-weight-semi); letter-spacing: .06em;
+  box-shadow: 0 8px 24px rgba(0,0,0,.4);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  white-space: nowrap;
+}
+.float-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(0,0,0,.5); }
+.float-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+.float-wa { background: var(--color-wa); color: #fff; }
+.float-line { background: var(--color-line); color: #fff; }
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .listings-grid { grid-template-columns: repeat(2, 1fr); }
+  .filters-bar { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 1024px) {
+  .page-hero { padding: 140px 40px 60px; }
+  .filters-section { padding: 40px 40px 30px; }
+  .listings-section { padding: 60px 40px 100px; }
+  nav { padding: 20px 40px; }
+  nav.scrolled { padding: 14px 40px; }
+  footer { padding: var(--space-10) 40px var(--space-7); }
+  .filters-bar { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .page-hero { padding: 120px 24px 50px; }
+  .filters-section { padding: 30px 24px 24px; }
+  .listings-section { padding: 50px 24px 80px; }
+  .listings-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  .filters-bar { grid-template-columns: 1fr; gap: var(--space-3); }
+  .listings-header { flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+  nav { padding: 18px 24px; }
+  nav.scrolled { padding: 14px 24px; }
+  footer { padding: var(--space-9) 24px var(--space-6); }
+  .footer-top { flex-direction: column; gap: var(--space-6); }
+}
+@media (max-width: 480px) {
+  .float-btn .float-label { display: none; }
+  .float-btn { padding: 14px; border-radius: var(--radius-full); }
+}
+  </style>
+</head>
+<body>
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-btns">
+  <a href="https://wa.me/6680000000" target="_blank" rel="noopener" class="float-btn float-wa" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+    <span class="float-label">WhatsApp</span>
+  </a>
+  <a href="https://line.me/ti/p/@yourholidayvillas" target="_blank" rel="noopener" class="float-btn float-line" aria-label="LINE">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    <span class="float-label">@yourholidayvillas</span>
+  </a>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <a href="index.html#properties">Properties</a>
+  <a href="sell-rent.html">Sell &amp; Rent</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#why-pattaya">Why Pattaya</a>
+  <a href="index.html#testimonials">Reviews</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<!-- NAVIGATION -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <span class="wordmark">Your Holiday Villas</span>
+    <span class="tagline">Pattaya's Premier Pool Villa Specialists</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#properties">Properties</a></li>
+    <li><a href="sell-rent.html" class="active">Sell &amp; Rent</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#why-pattaya">Why Pattaya</a></li>
+    <li><a href="index.html#testimonials">Reviews</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Enquire Now</a></li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <p class="page-hero-eyebrow">Browse Listings</p>
+  <h1 class="page-hero-title">
+    Pattaya Properties for<br><em>Sale &amp; Rent</em>
+  </h1>
+  <p class="page-hero-desc">
+    Handpicked condos, pool villas, houses and land across Pratumnak, Jomtien, Wongamat, Naklua and Central Pattaya. Filter by what matters to you.
+  </p>
+</section>
+
+<!-- FILTERS -->
+<section class="filters-section">
+  <div class="filters-bar" id="filtersBar">
+    <div class="filter-group">
+      <label class="filter-label" for="filter-type">Type</label>
+      <select class="filter-select" id="filter-type">
+        <option value="all">All Properties</option>
+        <option value="sale">For Sale</option>
+        <option value="rent">For Rent</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="filter-area">Area</label>
+      <select class="filter-select" id="filter-area">
+        <option value="all">All Areas</option>
+        <option value="pratumnak">Pratumnak</option>
+        <option value="jomtien">Jomtien</option>
+        <option value="wongamat">Wongamat</option>
+        <option value="naklua">Naklua</option>
+        <option value="central">Central Pattaya</option>
+        <option value="east">East Pattaya</option>
+        <option value="banglamung">Banglamung</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="filter-price">Price</label>
+      <select class="filter-select" id="filter-price">
+        <option value="all">Any Price</option>
+        <option value="0-3000000">Under ฿3M</option>
+        <option value="3000000-6000000">฿3M – ฿6M</option>
+        <option value="6000000-10000000">฿6M – ฿10M</option>
+        <option value="10000000-20000000">฿10M – ฿20M</option>
+        <option value="20000000-999000000">฿20M+</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="filter-bedrooms">Bedrooms</label>
+      <select class="filter-select" id="filter-bedrooms">
+        <option value="all">Any</option>
+        <option value="1">1 Bed</option>
+        <option value="2">2 Bed</option>
+        <option value="3">3 Bed</option>
+        <option value="4">4+ Bed</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="filter-property">Property</label>
+      <select class="filter-select" id="filter-property">
+        <option value="all">All Types</option>
+        <option value="condo">Condo</option>
+        <option value="villa">Pool Villa</option>
+        <option value="house">House</option>
+        <option value="land">Land</option>
+      </select>
+    </div>
+  </div>
+  <div class="filter-reset">
+    <button class="filter-reset-btn" id="filterReset">Reset Filters</button>
+  </div>
+</section>
+
+<!-- LISTINGS -->
+<section class="listings-section">
+
+  <!-- CMS-pending banner (remove once Sanity is integrated) -->
+  <div class="cms-banner">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p><strong>Listings shown below are placeholders.</strong> Live CMS integration (Sanity.io) coming soon — clients will manage listings via web admin panel.</p>
+  </div>
+
+  <div class="listings-header">
+    <p class="listings-count"><strong id="listingsCount">6</strong> properties</p>
+    <div class="listings-sort">
+      <label for="sort-by">Sort by</label>
+      <select class="filter-select" id="sort-by" style="padding: 10px 36px 10px 14px; font-size: var(--font-sm);">
+        <option value="newest">Newest</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="listings-grid" id="listingsGrid">
+
+    <!-- Listing 1 -->
+    <article class="listing-card" data-type="sale" data-area="pratumnak" data-price="8500000" data-bedrooms="3" data-property="villa">
+      <div class="listing-img">
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=700&q=85&auto=format&fit=crop" alt="Pratumnak Pool Villa" loading="lazy" width="700" height="525" />
+        <span class="listing-badge for-sale">For Sale</span>
+        <button class="listing-action" aria-label="Save property">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+      </div>
+      <div class="listing-body">
+        <div>
+          <p class="listing-price">฿8,500,000</p>
+          <p class="listing-price-usd">≈ $236,000 USD</p>
+        </div>
+        <p class="listing-name">Pratumnak Pool Villa</p>
+        <p class="listing-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Pratumnak Hill, Pattaya
+        </p>
+        <div class="listing-meta">
+          <div class="listing-meta-item"><strong>3</strong>&nbsp;Bed</div>
+          <div class="listing-meta-item"><strong>3</strong>&nbsp;Bath</div>
+          <div class="listing-meta-item"><strong>280</strong>&nbsp;sqm</div>
+          <div class="listing-meta-item"><strong>Private Pool</strong></div>
+        </div>
+        <a href="index.html#contact" class="listing-cta">Enquire</a>
+      </div>
+    </article>
+
+    <!-- Listing 2 -->
+    <article class="listing-card" data-type="sale" data-area="jomtien" data-price="3200000" data-bedrooms="2" data-property="condo">
+      <div class="listing-img">
+        <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=700&q=85&auto=format&fit=crop" alt="Jomtien Sea View Condo" loading="lazy" width="700" height="525" />
+        <span class="listing-badge for-sale">For Sale</span>
+        <button class="listing-action" aria-label="Save property">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+      </div>
+      <div class="listing-body">
+        <div>
+          <p class="listing-price">฿3,200,000</p>
+          <p class="listing-price-usd">≈ $89,000 USD</p>
+        </div>
+        <p class="listing-name">Jomtien Sea View Condo</p>
+        <p class="listing-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Jomtien Beach, Pattaya
+        </p>
+        <div class="listing-meta">
+          <div class="listing-meta-item"><strong>2</strong>&nbsp;Bed</div>
+          <div class="listing-meta-item"><strong>2</strong>&nbsp;Bath</div>
+          <div class="listing-meta-item"><strong>85</strong>&nbsp;sqm</div>
+          <div class="listing-meta-item"><strong>Sea View</strong></div>
+        </div>
+        <a href="index.html#contact" class="listing-cta">Enquire</a>
+      </div>
+    </article>
+
+    <!-- Listing 3 -->
+    <article class="listing-card" data-type="rent" data-area="naklua" data-price="85000" data-bedrooms="3" data-property="villa">
+      <div class="listing-img">
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=700&q=85&auto=format&fit=crop" alt="Na Kluea Pool Villa for Rent" loading="lazy" width="700" height="525" />
+        <span class="listing-badge for-rent">For Rent</span>
+        <button class="listing-action" aria-label="Save property">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+      </div>
+      <div class="listing-body">
+        <div>
+          <p class="listing-price">฿85,000<span style="font-size: var(--font-sm); color: var(--color-text-muted);"> /mo</span></p>
+          <p class="listing-price-usd">≈ $2,360 / month</p>
+        </div>
+        <p class="listing-name">Na Kluea Pool Villa</p>
+        <p class="listing-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Na Kluea, North Pattaya
+        </p>
+        <div class="listing-meta">
+          <div class="listing-meta-item"><strong>3</strong>&nbsp;Bed</div>
+          <div class="listing-meta-item"><strong>3</strong>&nbsp;Bath</div>
+          <div class="listing-meta-item"><strong>320</strong>&nbsp;sqm</div>
+          <div class="listing-meta-item"><strong>Furnished</strong></div>
+        </div>
+        <a href="index.html#contact" class="listing-cta">Enquire</a>
+      </div>
+    </article>
+
+    <!-- Listing 4 -->
+    <article class="listing-card" data-type="sale" data-area="east" data-price="12900000" data-bedrooms="4" data-property="villa">
+      <div class="listing-img">
+        <img src="https://images.unsplash.com/photo-1540541338537-1220059c15d2?w=700&q=85&auto=format&fit=crop" alt="East Pattaya Luxury Villa" loading="lazy" width="700" height="525" />
+        <span class="listing-badge for-sale">For Sale</span>
+        <button class="listing-action" aria-label="Save property">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+      </div>
+      <div class="listing-body">
+        <div>
+          <p class="listing-price">฿12,900,000</p>
+          <p class="listing-price-usd">≈ $358,000 USD</p>
+        </div>
+        <p class="listing-name">East Pattaya Luxury Villa</p>
+        <p class="listing-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          East Pattaya, Chonburi
+        </p>
+        <div class="listing-meta">
+          <div class="listing-meta-item"><strong>4</strong>&nbsp;Bed</div>
+          <div class="listing-meta-item"><strong>4</strong>&nbsp;Bath</div>
+          <div class="listing-meta-item"><strong>450</strong>&nbsp;sqm</div>
+          <div class="listing-meta-item"><strong>Pool &amp; Garden</strong></div>
+        </div>
+        <a href="index.html#contact" class="listing-cta">Enquire</a>
+      </div>
+    </article>
+
+    <!-- Listing 5 -->
+    <article class="listing-card" data-type="rent" data-area="jomtien" data-price="35000" data-bedrooms="1" data-property="condo">
+      <div class="listing-img">
+        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=85&auto=format&fit=crop" alt="Jomtien Studio Condo" loading="lazy" width="700" height="525" />
+        <span class="listing-badge for-rent">For Rent</span>
+        <button class="listing-action" aria-label="Save property">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+      </div>
+      <div class="listing-body">
+        <div>
+          <p class="listing-price">฿35,000<span style="font-size: var(--font-sm); color: var(--color-text-muted);"> /mo</span></p>
+          <p class="listing-price-usd">≈ $970 / month</p>
+        </div>
+        <p class="listing-name">Jomtien Modern Studio</p>
+        <p class="listing-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Jomtien Beach, Pattaya
+        </p>
+        <div class="listing-meta">
+          <div class="listing-meta-item"><strong>1</strong>&nbsp;Bed</div>
+          <div class="listing-meta-item"><strong>1</strong>&nbsp;Bath</div>
+          <div class="listing-meta-item"><strong>42</strong>&nbsp;sqm</div>
+          <div class="listing-meta-item"><strong>Pool Access</strong></div>
+        </div>
+        <a href="index.html#contact" class="listing-cta">Enquire</a>
+      </div>
+    </article>
+
+    <!-- Listing 6 -->
+    <article class="listing-card" data-type="sale" data-area="banglamung" data-price="4500000" data-bedrooms="0" data-property="land">
+      <div class="listing-img">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=700&q=85&auto=format&fit=crop" alt="Banglamung Land Plot" loading="lazy" width="700" height="525" />
+        <span class="listing-badge for-sale">For Sale</span>
+        <button class="listing-action" aria-label="Save property">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+      </div>
+      <div class="listing-body">
+        <div>
+          <p class="listing-price">฿4,500,000</p>
+          <p class="listing-price-usd">≈ $125,000 USD</p>
+        </div>
+        <p class="listing-name">Banglamung Land Plot</p>
+        <p class="listing-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Banglamung, Pattaya
+        </p>
+        <div class="listing-meta">
+          <div class="listing-meta-item"><strong>400</strong>&nbsp;sqw</div>
+          <div class="listing-meta-item"><strong>Chanote Title</strong></div>
+          <div class="listing-meta-item"><strong>Ready to Build</strong></div>
+        </div>
+        <a href="index.html#contact" class="listing-cta">Enquire</a>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Empty state (shown when filters return 0 results) -->
+  <div class="listings-empty" id="listingsEmpty" style="display:none;">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <p>No properties match your filters.<br>Try adjusting your criteria or <a href="index.html#contact" style="color: var(--color-primary);">contact us</a> for personalized recommendations.</p>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="wordmark">Your Holiday Villas</div>
+        <div class="tagline-sm">Pattaya's Premier Pool Villa Specialists</div>
+      </div>
+      <div class="footer-contact">
+        <a href="tel:+66380000000">+66 (0) 38 000 000</a>
+        <a href="mailto:info@yourholidayvillas.com">info@yourholidayvillas.com</a>
+        <a href="https://wa.me/6680000000" target="_blank" rel="noopener">WhatsApp: +66 80 000 0000</a>
+        <a href="index.html#contact">Contact form</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Your Holiday Villas. All rights reserved.</p>
+      <p><a href="index.html">Back to home</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+'use strict';
+
+/* Nav scroll state */
+const nav = document.getElementById('mainNav');
+if (nav) {
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+}
+
+/* Mobile menu */
+const mm = document.getElementById('mobileMenu');
+const hamburger = document.getElementById('navHamburger');
+const closeBtn = document.getElementById('mobileClose');
+if (mm && hamburger) {
+  hamburger.onclick = () => mm.classList.add('open');
+  if (closeBtn) closeBtn.onclick = () => mm.classList.remove('open');
+  // close on link click
+  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mm.classList.remove('open')));
+}
+
+/* Heart toggle */
+document.querySelectorAll('.listing-action').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const svg = this.querySelector('svg');
+    const on = svg.getAttribute('data-on') === '1';
+    svg.setAttribute('fill', on ? 'none' : '#d4af37');
+    svg.setAttribute('stroke', on ? 'white' : '#d4af37');
+    svg.setAttribute('data-on', on ? '0' : '1');
+  });
+});
+
+/* ============================================================
+   FILTERS — client-side filtering of .listing-card DOM nodes
+   When Sanity CMS lands, this logic moves to filtering the
+   fetched JSON array before render. Same UX, different source.
+   ============================================================ */
+
+const filterState = {
+  type: 'all',
+  area: 'all',
+  price: 'all',
+  bedrooms: 'all',
+  property: 'all',
+  sort: 'newest'
+};
+
+const filterEls = {
+  type:     document.getElementById('filter-type'),
+  area:     document.getElementById('filter-area'),
+  price:    document.getElementById('filter-price'),
+  bedrooms: document.getElementById('filter-bedrooms'),
+  property: document.getElementById('filter-property'),
+  sort:     document.getElementById('sort-by')
+};
+const grid = document.getElementById('listingsGrid');
+const countEl = document.getElementById('listingsCount');
+const emptyEl = document.getElementById('listingsEmpty');
+const resetBtn = document.getElementById('filterReset');
+
+function matchesFilters(card) {
+  // Type (sale / rent)
+  if (filterState.type !== 'all' && card.dataset.type !== filterState.type) return false;
+  // Area
+  if (filterState.area !== 'all' && card.dataset.area !== filterState.area) return false;
+  // Bedrooms
+  if (filterState.bedrooms !== 'all') {
+    const cardBeds = parseInt(card.dataset.bedrooms, 10);
+    const wanted = filterState.bedrooms === '4' ? 4 : parseInt(filterState.bedrooms, 10);
+    if (filterState.bedrooms === '4' ? cardBeds < 4 : cardBeds !== wanted) return false;
+  }
+  // Property type
+  if (filterState.property !== 'all' && card.dataset.property !== filterState.property) return false;
+  // Price range (only applies to sale listings — rent prices are per month, different scale)
+  if (filterState.price !== 'all' && card.dataset.type === 'sale') {
+    const [min, max] = filterState.price.split('-').map(Number);
+    const price = parseInt(card.dataset.price, 10);
+    if (price < min || price > max) return false;
+  }
+  return true;
+}
+
+function sortCards(cards) {
+  const arr = [...cards];
+  if (filterState.sort === 'price-asc') {
+    arr.sort((a, b) => parseInt(a.dataset.price, 10) - parseInt(b.dataset.price, 10));
+  } else if (filterState.sort === 'price-desc') {
+    arr.sort((a, b) => parseInt(b.dataset.price, 10) - parseInt(a.dataset.price, 10));
+  }
+  // 'newest' = leave DOM order (newest first by convention)
+  return arr;
+}
+
+function applyFilters() {
+  const allCards = grid.querySelectorAll('.listing-card');
+  const matched = [...allCards].filter(matchesFilters);
+  const sorted = sortCards(matched);
+
+  // Hide all, then show matched in sort order
+  allCards.forEach(c => c.style.display = 'none');
+  sorted.forEach((c, i) => {
+    c.style.display = '';
+    c.style.order = i;
+  });
+
+  // Update count + empty state
+  countEl.textContent = matched.length;
+  emptyEl.style.display = matched.length === 0 ? 'block' : 'none';
+  grid.style.display = matched.length === 0 ? 'none' : 'grid';
+}
+
+// Wire up all filter selects
+Object.keys(filterEls).forEach(key => {
+  if (filterEls[key]) {
+    filterEls[key].addEventListener('change', (e) => {
+      filterState[key] = e.target.value;
+      applyFilters();
+    });
+  }
+});
+
+// Reset button
+if (resetBtn) {
+  resetBtn.addEventListener('click', () => {
+    Object.keys(filterState).forEach(k => filterState[k] = k === 'sort' ? 'newest' : 'all');
+    Object.values(filterEls).forEach(el => {
+      if (el) el.value = el.id === 'sort-by' ? 'newest' : 'all';
+    });
+    applyFilters();
+  });
+}
+</script>
+
+</body>
+</html>
