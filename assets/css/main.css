@@ -1,0 +1,35 @@
+/* ============================================================
+   main.css — Component & layout styles (PLACEHOLDER)
+
+   Source: index.html <style> block (everything after :root and reset)
+   Load LAST (after variables.css + reset.css)
+
+   Section order to preserve when migrating:
+   1.  BASE          body, base typography
+   2.  CURSOR GLOW   #cursor-glow
+   3.  NAV           nav, .nav-*, .mobile-menu
+   4.  HERO          .hero, .hero-*
+   5.  MARQUEE       .marquee-strip
+   6.  SECTION COMMONS    section, .section-*, .reveal
+   7.  PROPERTIES    .properties, .property-*
+   8.  ABOUT         .about, .about-*, .stats-*
+   9.  SERVICES      .services, .service-*
+   10. WHY-PATTAYA   .why-grid, .why-card
+   11. BUYER GUIDE   .buyer-*
+   12. TESTIMONIALS  .testimonial-*, .t-*
+   13. LOCATIONS     .locations, .map-pin
+   14. CONTACT       .contact, .form-*
+   15. FOOTER        footer, .footer-*
+   16. MOBILE MENU   .mobile-menu, .mobile-close
+   17. FLOATING      .floating-btns, .float-*
+   18. ANIMATIONS    @keyframes (fadeUp, marquee, scrollPulse, pulse)
+   19. RESPONSIVE    @media (1200 / 1024 / 768 / 480)
+
+   RULES (already enforced in index.html):
+   - Never hardcode colors — always var(--color-*) or var(--c-*)
+   - Never duplicate breakpoints — use 1200 / 1024 / 768 / 480
+   - All new code uses --color-*, --font-*, --space-*, --radius-*, --shadow-*
+   - Legacy code may use --c-*, --ff-*, --radius-sm (kept for compatibility)
+   ============================================================ */
+
+/* TODO: migrate styles from index.html <style> block when split happens */

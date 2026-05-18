@@ -1,0 +1,101 @@
+# Pages — site map
+
+## Current state
+
+**Single-page site** — visas turinys gyvena viename `index.html` faile. Nav links nurodo į `#anchors`, ne į atskirus puslapius.
+
+## Live pages
+
+| Slug | File | Title | Purpose | Status |
+|---|---|---|---|---|
+| `/` | `index.html` | Your Holiday Villas Pattaya \| Pool Villas, Condos & Houses For Sale & Rent | All-in-one landing — hero, properties, about, services, why-pattaya, buyer-guide, testimonials, locations, contact | ✅ done |
+
+## In-page anchors (current navigation)
+
+Nav links iš `components/nav.html` reference'ai (visi `#anchors` ant `index.html`):
+
+| Anchor | Section | Status |
+|---|---|---|
+| `#hero` | Hero + marquee | ✅ done |
+| `#properties` | Featured listings (5 placeholder cards) | ⚠️ placeholder content |
+| `#about` | About + animated counters | ⚠️ placeholder stats |
+| `#services` | 4 services grid | ✅ done |
+| `#why-pattaya` | 6 investment stats | ✅ done |
+| `#buyer-guide` | Freehold vs leasehold | ✅ done |
+| `#testimonials` | 4 placeholder reviews | ⚠️ placeholder content |
+| `#locations` | 6 Pattaya areas + map pins | ⚠️ placeholder listing counts |
+| `#contact` | Contact form + info | ⚠️ form has no backend |
+
+## Footer-referenced pages (currently `href="#"` — DO NOT EXIST)
+
+These are linked from footer but lead nowhere. Either:
+- (a) Build them as separate pages, OR
+- (b) Convert to in-page filters/sections, OR
+- (c) Remove from footer
+
+| Slug | Title (inferred) | Purpose | Status |
+|---|---|---|---|
+| `/villas-for-sale` | Pool Villas For Sale | Filtered listings, sale only, villas | 📋 planned |
+| `/condos-for-sale` | Condos For Sale | Filtered listings, sale only, condos | 📋 planned |
+| `/houses-for-sale` | Houses For Sale | Filtered listings, sale only, houses | 📋 planned |
+| `/villas-for-rent` | Villas For Rent | Filtered listings, rent only | 📋 planned |
+| `/land-plots` | Land Plots | Filtered listings, land only | 📋 planned |
+| `/new-developments` | New Developments | Off-plan / pre-construction projects | 📋 planned |
+| `/pratumnak-hill` | Pratumnak Hill Properties | Area landing page | 📋 planned |
+| `/jomtien-beach` | Jomtien Beach Properties | Area landing page | 📋 planned |
+| `/east-pattaya` | East Pattaya Properties | Area landing page | 📋 planned |
+| `/na-kluea` | Na Kluea Properties | Area landing page | 📋 planned |
+| `/pattaya-beach` | Pattaya Beach Properties | Area landing page | 📋 planned |
+| `/banglamung` | Banglamung Properties | Area landing page | 📋 planned |
+| `/about` | About Us | Full team bio, history, philosophy | 📋 planned |
+| `/foreign-buyer-guide` | Foreign Buyer Guide | Expanded legal + tax guide | 📋 planned |
+| `/why-invest-pattaya` | Why Invest in Pattaya | Long-form investment thesis | 📋 planned |
+| `/property-valuation` | Free Property Valuation | Lead-gen form for owners wanting to sell | 📋 planned |
+| `/contact` | Contact Us | Standalone contact page (or just anchor to #contact) | 📋 planned |
+| `/privacy-policy` | Privacy Policy | GDPR / Thai PDPA compliance | 📋 planned |
+| `/terms` | Terms of Service | Legal terms | 📋 planned |
+| `/sitemap.xml` | Sitemap | SEO sitemap | 📋 planned |
+
+## Individual property pages
+
+**[TODO]** — strategy decision needed:
+- (a) Each property gets own page (`/property/pratumnak-pool-villa-3bed`) for SEO
+- (b) Modal/lightbox on click (no separate page)
+- (c) Just gallery, no individual details
+
+Currently: property cards click → nowhere (no `<a>` wrapping the card, only heart button works)
+
+## Pages roadmap priority
+
+**Phase 1 — fix current placeholder content:**
+1. Real photos (5 properties + hero + about + locations)
+2. Real testimonials (currently fake)
+3. Real listing counts in locations section
+4. Real contact info (phone, WhatsApp, LINE, email)
+
+**Phase 2 — backend infrastructure:**
+1. Contact form backend (Formspree / Netlify Forms / custom)
+2. Favicon, sitemap.xml, robots.txt, OG image
+3. GA4 or Plausible analytics
+
+**Phase 3 — content expansion:**
+1. `/foreign-buyer-guide` — top-priority SEO page for "buy property thailand" keywords
+2. `/why-invest-pattaya` — long-form for "invest pattaya real estate" keywords
+3. Area landing pages (Pratumnak, Jomtien, etc.) — long-tail SEO
+4. Privacy + Terms (legal requirement)
+
+**Phase 4 — listings system:**
+1. Individual property pages (or property detail modal)
+2. Filtered category pages (For Sale, For Rent, By Area)
+3. **[TODO]** — decide if listings come from CMS, JSON file, or hardcoded HTML
+
+## Legend
+
+- ✅ done — built and live
+- ⚠️ placeholder content — built but needs real data
+- 🚧 in-progress — actively being worked on
+- 📋 planned — not yet started
+
+---
+
+**Updated:** 2026-05-18 (initial — inferred from `index.html` + footer links)

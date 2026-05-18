@@ -1,0 +1,20 @@
+<!--
+  sections/about.html — About + animated stat counters (PLACEHOLDER)
+  Source: index.html (search for <section class="about")
+
+  Layout: 2-col (about-visual + about-text), stacks vertical ≤1024
+  Visual: Unsplash team photo + ฿850M+ badge overlay
+  Text: section-title + section-desc + stats-grid (4) + signature
+
+  Stat counters use data attrs (animateCounters in JS):
+    data-target="850" data-suffix="M+" data-prefix="฿"
+  Current counters:
+    ฿850M+ in transactions / 393+ clients / 251+ listings / 15+ years
+
+  Required by JS:
+  - #aboutVisual (IntersectionObserver scale animation)
+  - .stats-grid (triggers animateCounters on first intersection)
+  - .stat-num[data-target] (counter elements)
+-->
+
+<!-- TODO: copy about section from index.html when split happens -->

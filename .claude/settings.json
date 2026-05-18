@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/pinig/Real-estate/**)",
+      "Write(//c/Users/pinig/Real-estate/**)",
+      "Edit(//c/Users/pinig/Real-estate/**)",
+      "Glob",
+      "Grep",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(wc *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(grep *)",
+      "Bash(mkdir *)",
+      "Bash(touch *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(git status)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git branch *)",
+      "Bash(git stash *)",
+      "Bash(git revert *)",
+      "Bash(curl http://localhost:*)",
+      "Bash(curl http://127.0.0.1:*)",
+      "Bash(start index.html)",
+      "Bash(powershell -NoProfile -Command Start-Process index.html)"
+    ],
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean -fd *)",
+      "Bash(rm -rf *)",
+      "Write(.env*)",
+      "Write(**/secrets/**)",
+      "Read(.env*)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(rm *)",
+      "Write(index.html)",
+      "Edit(index.html)"
+    ]
+  },
+  "env": {
+    "PROJECT_NAME": "yourholidayvillas-pattaya",
+    "PROJECT_TYPE": "single-file-static-site"
+  }
+}

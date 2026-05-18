@@ -1,0 +1,29 @@
+/* ============================================================
+   variables.css — Design tokens (PLACEHOLDER)
+
+   Source of truth currently lives in index.html :root block
+   (~lines 26-184). When migration happens, COPY that :root
+   here unchanged — the 102-token system is already complete.
+
+   Token groups (already in index.html):
+   - --color-*           semantic colors
+   - --c-*               legacy color aliases
+   - --color-wa/line/tripadvisor   brand colors
+   - --font-family-*     serif + sans
+   - --font-2xs → 4xl    type scale (0.6rem → 2.8rem)
+   - --font-display-*    fluid clamp() titles
+   - --font-weight-*     300/400/500/600/700
+   - --tracking-*        letter spacing
+   - --leading-*         line heights
+   - --space-1 → 16      4px base spacing
+   - --section-pad-*     responsive section padding
+   - --radius-*          3/4/8/16/50px + 50%
+   - --shadow-*          gold-tinted + dark drops
+   - --transition/-fast/-slow
+   - --z-*               layering scale
+
+   Breakpoints (referenced everywhere):
+     480 / 768 / 1024 / 1200
+   ============================================================ */
+
+/* TODO: copy :root { ... } from index.html when migration begins */

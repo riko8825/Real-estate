@@ -1,0 +1,10 @@
+/* ============================================================
+   reset.css — Minimal reset (PLACEHOLDER)
+
+   Source: index.html ~lines 588-610
+   Migration: copy *,html,img,a,button,input rules + scrollbar
+
+   Load AFTER variables.css, BEFORE main.css
+   ============================================================ */
+
+/* TODO: migrate reset block from index.html when split happens */
