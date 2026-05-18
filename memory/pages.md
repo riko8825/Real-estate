@@ -2,7 +2,8 @@
 
 ## Current state
 
-**Single-page site** — visas turinys gyvena viename `index.html` faile. Nav links nurodo į `#anchors`, ne į atskirus puslapius.
+**Single-page + listings page** — `index.html` (landing) + `sell-rent.html` (listings, Phase 1 placeholder).
+**Production:** https://pridaproperty.com (Vercel, auto-deploys on `git push origin main`)
 
 ## Live pages
 
@@ -69,10 +70,10 @@ Currently: property cards click → nowhere (no `<a>` wrapping the card, only he
 ## Pages roadmap priority
 
 **Phase 1 — fix current placeholder content:**
-1. Real photos (5 properties + hero + about + locations)
-2. Real testimonials (currently fake)
-3. Real listing counts in locations section
-4. Real contact info (phone, WhatsApp, LINE, email)
+1. Real photos (5 properties + hero + about + locations) — ⏳ poy.png done, rest pending
+2. Real testimonials (currently fake) — ⏳ pending
+3. Real listing counts in locations section — ⏳ pending
+4. Real contact info: WhatsApp ✅, LINE ✅, Phone ✅ (2026-05-18), Email ⏳ pending
 
 **Phase 2 — backend infrastructure:**
 1. Contact form backend (Formspree / Netlify Forms / custom)

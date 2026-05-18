@@ -4,6 +4,45 @@ Newest decisions on top. Format: `YYYY-MM-DD — Decision — Reason`.
 
 ---
 
+## 2026-05-18 — Session 3 close: Deploy live on pridaproperty.com + placeholder cleanup
+
+**Status snapshot:**
+- Production live: https://pridaproperty.com (Vercel, project `real-estate` under `pinigine1-6549's projects`)
+- GitHub Pages also enabled (riko8825.github.io/Real-estate) but 301 redirects to pridaproperty.com via CNAME — effectively redundant
+- 6 commits pushed (e1cc749 → de7fb7a), all auto-deployed by Vercel after Git reconnect
+
+**Self-score: 6/10. Project completion: 70%.**
+
+**Diagnostic detour (cost ~15 min):**
+Started session assuming deploy target was undecided per Session 2 notes. Pushed code to GitHub, then set up GitHub Pages with `.nojekyll` + `CNAME`. After user reported "nematau pakeitimų" on pridaproperty.com, discovered the domain was already on Vercel (Vercel project `real-estate` existed from before, but its Git link to `riko8825/Real-estate` had broken). Fix: user clicked "Reconnect" in Vercel Settings → Git, then pushed empty commit to trigger redeploy.
+
+**Lesson:** before assuming "deploy is open blocker," check `curl -I <domain>` for `Server:` header — would have revealed `Server: Vercel` in 5 seconds vs the 15min path. Add to next session start-task pattern.
+
+**Placeholder cleanup (real values now live):**
+- WhatsApp: `wa.me/66824955455` + display `+66 82 495 5455` (was `wa.me/6680000000`)
+- LINE: `line.me/ti/p/~poyinwonderland` + display `poyinwonderland` (was `@yourholidayvillas`)
+- Phone (tel: + display + schema.org telephone): `+66 82 495 5455` (was `+66 38 000 000`) — same as WhatsApp per user
+- Domain meta (canonical, og:url, og:image, twitter:image, schema.org @id/url, 15 spots): `pridaproperty.com` (was `yourholidayvillas.com`)
+- Email INTENTIONALLY left as `info@yourholidayvillas.com` (user will provide later)
+
+**Files changed:** `index.html` + `sell-rent.html` only. Placeholder folders (`components/`, `sections/`) untouched per CLAUDE.md §7. Memory docs (`pages.md`, `decisions.md`) updated.
+
+**Open blockers (need user action):**
+- Email value (`info@???`) — user said "pridėsiu vėliau"
+- Sanity Editor invite for Poy (`chabaratree@gmail.com`) — carry-over from Session 2
+- `og:image` file missing — `pridaproperty.com/assets/images/og-image-home.jpg` returns 404, social previews broken
+- poy.png 1.43MB optimization (carry-over)
+
+**Next session should pick up:**
+1. Create `og-image-home.jpg` (1200×630, brand) — fix broken social media previews
+2. Phase 3 — wire `sell-rent.html` to Sanity API (replace 6 hardcoded cards with `fetch` from dataset `t4802zzb`)
+3. Add CORS origin `https://pridaproperty.com` in Sanity Manage when Phase 3 starts
+4. Decide whether to keep GitHub Pages CNAME (currently redundant — Vercel handles everything)
+
+**Browser QA NOT done this session** — all verification was via `curl` (server-side response). Live UI behavior on 1024/768/480 breakpoints after content changes is unverified.
+
+---
+
 ## 2026-05-18 — Session 2 close: Sanity Studio deployed + content overhaul
 
 **Status snapshot:**
@@ -160,12 +199,12 @@ These need user input before they can be resolved:
 
 | Topic | Options under consideration | Status |
 |---|---|---|
-| **Hosting / deploy** | GitHub Pages, Netlify, Vercel, custom VPS | ❓ undecided |
+| **Hosting / deploy** | ~~GitHub Pages, Netlify, Vercel, custom VPS~~ | ✅ RESOLVED 2026-05-18 — Vercel (pridaproperty.com live) |
 | **Form backend** | Formspree, Netlify Forms, custom API, Web3Forms | ❓ undecided |
 | **Analytics** | Google Analytics 4, Plausible, Fathom, none | ❓ undecided |
-| **CMS for listings** | Hardcoded HTML, JSON file, Airtable + JS, Headless CMS (Sanity/Contentful), WordPress | ❓ undecided |
+| **CMS for listings** | ~~Hardcoded HTML, JSON file, Airtable + JS, Headless CMS, WordPress~~ | ✅ RESOLVED 2026-05-18 — Sanity (Studio live, Phase 3 wire-up pending) |
 | **Languages** | EN only, EN+TH+RU, EN+RU, more? | ❓ undecided (team speaks 3) |
-| **Domain name** | yourholidayvillas.com or .co.th or .asia or… | ❓ undecided |
+| **Domain name** | ~~yourholidayvillas.com or .co.th or .asia or…~~ | ✅ RESOLVED 2026-05-18 — pridaproperty.com |
 | **Logo** | Wordmark only (current) or design real SVG mark | ❓ undecided |
 | **Property page strategy** | Individual pages, modal/lightbox, none (gallery only) | ❓ undecided |
 | **Currency display** | THB + USD only (current), or add EUR/GBP/RUB switcher | ❓ undecided |
