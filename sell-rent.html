@@ -425,11 +425,20 @@ footer {
 .footer-contact a { color: var(--color-text-muted); transition: color var(--transition-fast); }
 .footer-contact a:hover { color: var(--color-primary); }
 .footer-bottom {
-  padding-top: var(--space-8); border-top: 1px solid var(--color-border);
+  padding-top: var(--space-8); padding-right: 220px; border-top: 1px solid var(--color-border);
   font-size: var(--font-2xs); color: var(--color-text-subtle); letter-spacing: .06em;
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--space-6);
 }
+.footer-bottom > :nth-child(1) { justify-self: start; }
+.footer-bottom > :nth-child(2) { justify-self: center; text-align: center; }
+.footer-bottom > :nth-child(3) { justify-self: end; text-align: right; }
 .footer-bottom a { color: var(--color-primary); }
+@media (max-width: 768px) {
+  .footer-bottom { grid-template-columns: 1fr; padding-right: 0; gap: var(--space-3); text-align: center; }
+  .footer-bottom > :nth-child(1),
+  .footer-bottom > :nth-child(2),
+  .footer-bottom > :nth-child(3) { justify-self: center; text-align: center; }
+}
 
 /* FLOATING BUTTONS (copied from index.html) */
 .floating-btns {
@@ -481,7 +490,12 @@ footer {
   .float-btn .float-label { display: none; }
   .float-btn { padding: 14px; border-radius: var(--radius-full); }
 }
+
   </style>
+
+  <!-- Silktide Consent Manager — deferred to avoid render-blocking -->
+  <link rel="preload" href="assets/css/silktide-consent-manager.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="assets/css/silktide-consent-manager.css" /></noscript>
 </head>
 <body>
 
@@ -716,7 +730,7 @@ footer {
     <!-- Listing 4 -->
     <article class="listing-card" data-type="sale" data-area="east" data-price="12900000" data-bedrooms="4" data-property="villa">
       <div class="listing-img">
-        <img src="https://images.unsplash.com/photo-1540541338537-1220059c15d2?w=700&q=85&auto=format&fit=crop" alt="East Pattaya Luxury Villa" loading="lazy" width="700" height="525" />
+        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=700&q=85&auto=format&fit=crop" alt="East Pattaya Luxury Villa" loading="lazy" width="700" height="525" />
         <span class="listing-badge for-sale">For Sale</span>
         <button class="listing-action" aria-label="Save property">
           <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -819,14 +833,15 @@ footer {
       </div>
       <div class="footer-contact">
         <a href="tel:+66824955455">+66 82 495 5455</a>
-        <a href="mailto:info@yourholidayvillas.com">info@yourholidayvillas.com</a>
+        <a href="mailto:chabaratree@gmail.com">chabaratree@gmail.com</a>
         <a href="https://wa.me/66824955455" target="_blank" rel="noopener">WhatsApp: +66 82 495 5455</a>
         <a href="index.html#contact">Contact form</a>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2025 Your Holiday Villas. All rights reserved.</p>
-      <p><a href="index.html">Back to home</a></p>
+      <p><a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms</a> &nbsp;·&nbsp; <a href="sitemap.html">Sitemap</a></p>
+      <p>Built by <a href="https://empirra.com" target="_blank" rel="noopener">Empirra</a></p>
     </div>
   </div>
 </footer>
@@ -964,6 +979,10 @@ if (resetBtn) {
   });
 }
 </script>
+
+<!-- Silktide Consent Manager -->
+<script defer src="assets/js/silktide-consent-manager.js"></script>
+<script defer src="assets/js/consent-init.js"></script>
 
 </body>
 </html>

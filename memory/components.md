@@ -20,7 +20,8 @@
 | `nav#mainNav` | Fixed top nav, scrolled-state on scroll | `index.html` body top + `components/nav.html` (placeholder) | ✅ live |
 | `.mobile-menu` | Slide-in full-screen menu (≤768px) | `index.html` + `components/nav.html` | ✅ live |
 | `.nav-hamburger` | 3-line burger trigger (≤768px only) | `index.html` | ✅ live |
-| `footer` | 4-col footer (brand + 3 link columns) | `index.html` + `components/footer.html` | ⚠️ placeholder (all links `href="#"`) |
+| `footer` | 4-col footer (brand + 3 link columns) | `index.html` + `components/footer.html` | ⚠️ placeholder (some links still `href="#"`) |
+| `.footer-bottom` (3-col grid) | Copyright (left) / Privacy·Terms·Sitemap (center) / Built by Empirra (right). Mobile stack vertical. `padding-right:220px` desktop to avoid LINE button overlap. | `index.html:747` + `sell-rent.html:427` + 3 legal pages | ✅ live 2026-05-19 |
 | `#toast` | Bottom-center success notification (4s autohide) | `index.html` | ✅ live |
 | `<head>` block | Meta, fonts, OG tags | `index.html` + `components/header.html` | ⚠️ placeholder (no favicon, no OG image) |
 
@@ -32,6 +33,7 @@
 | `.marquee-strip` | Auto-scroll gold strip with 20 location chips | `index.html` + `sections/hero.html` | ✅ live |
 | `.properties` | Asymmetric grid (1 large + 4 small property cards) | `index.html` + `sections/properties.html` | ⚠️ placeholder (Unsplash images, fake listings) |
 | `.about` | 2-col about + animated stat counters | `index.html` + `sections/about.html` | ⚠️ placeholder (fake stats) |
+| `.video-intro` | Centered presentation video section — eyebrow+title+desc + 16:9 lazy-loaded video frame + 2 CTAs. Between `#about` and `#services`. | `index.html` | ✅ live 2026-05-20 (video = real, poster = Unsplash) |
 | `.services` | 4-col services grid (Pool Villa Sales, Condo Sales, Holiday Rentals, Land) | `index.html` + `sections/services.html` | ✅ live |
 | `.why-pattaya` | 6-card stat grid (investment thesis) | `index.html` + `sections/why-pattaya.html` | ✅ live |
 | `.buyer-guide` | Freehold vs leasehold 2-col + warning note | `index.html` + `sections/buyer-guide.html` | ✅ live |
@@ -70,6 +72,7 @@
 | `.testimonial-card` | 5 stars + quote + author with avatar | `sections/testimonials.html` | ⚠️ placeholder data |
 | `.location-item` | Area name + listing count (gold) | `sections/locations.html` | ⚠️ placeholder counts |
 | `.contact-detail-item` | Icon + label + value (phone/email/office) | `sections/contact.html` | ⚠️ placeholder values |
+| `.video-intro-frame` | 16:9 video container — poster `<img>` + overlay + meta badge + gold play button + `<video>`. Hover: gold border, corner accents, lift. `.playing` state swaps poster→video. | `index.html` | ✅ live 2026-05-20 |
 
 ## Form components
 
@@ -96,6 +99,7 @@
 | Mobile menu | Hamburger click | Toggle `.open` class | ✅ live |
 | Heart toggle | `.property-action` click | Toggle SVG `fill` + `data-on` | ✅ live |
 | Form submit | `<form>` onsubmit | `handleSubmit()` — **FAKE**, just shows toast | 🚧 no backend |
+| Video intro lazy-load | Click on `.video-intro-frame` or play button | Assigns `data-src`→`src` on first click, adds `.playing` class, calls `.play()` | ✅ live 2026-05-20 |
 
 ## Components NOT YET BUILT (planned)
 
@@ -104,7 +108,7 @@
 | Property detail page/modal | Click property card → see full info, gallery, map, agent contact | 🔴 high |
 | Property search/filter bar | Filter by area, price, bedrooms, sale/rent | 🟡 medium |
 | Property gallery (multi-image) | Lightbox swiper for property photos | 🟡 medium |
-| Cookie consent banner | GDPR + Thai PDPA compliance | 🟡 medium |
+| ~~Cookie consent banner~~ | ~~GDPR + Thai PDPA compliance~~ — ✅ DONE 2026-05-19 (Silktide, see below) | ~~🟡 medium~~ |
 | Newsletter signup | Email capture for property updates | 🟢 low |
 | Currency switcher | THB / USD / EUR / GBP / RUB | 🟢 low |
 | Language switcher | EN / TH / RU (currently only EN, but team is trilingual) | 🟡 medium |
@@ -112,6 +116,21 @@
 | Map view of all properties | Google Maps / Mapbox embed with property pins | 🟢 low |
 | Mortgage / yield calculator | Investment math for foreign buyers | 🟢 low |
 
+## Third-party vendor components
+
+| Name | Description | Location | Status |
+|---|---|---|---|
+| Silktide Consent Manager | Cookie consent banner + Preferences modal. 3 consent types: Necessary (required) + Analytics (opt-in, no-op until GA4) + Advertising (opt-in, no-op). Bottom-left position. Cookie icon persistent after consent. | `assets/js/silktide-consent-manager.js` (53KB vendor) + `assets/css/silktide-consent-manager.css` (12KB vendor) + `assets/js/consent-init.js` (project config) | ✅ live 2026-05-19 |
+
+**Vendor lib notes:**
+- Loaded on ALL 5 HTML pages (index, sell-rent, privacy-policy, terms, sitemap)
+- Defer scripts (non-blocking)
+- CSS preloaded with `onload` swap to stylesheet
+- Config copied 1:1 from Empirra `consent-init.js` — DO NOT customize without testing (see DECISION_LOG 2026-05-19, took 3 failed iterations)
+- localStorage key: `stcm.hasConsented` — clear to re-trigger banner during dev
+- Cookie icon DOM id: `#stcm-icon`. Banner DOM id: `#stcm-banner`. Modal: `#stcm-modal`.
+- onAccept hooks for Analytics/Advertising check `typeof gtag === 'function'` so they no-op safely until GA4 is wired up
+
 ---
 
-**Updated:** 2026-05-18 (initial — inferred from `index.html`)
+**Updated:** 2026-05-20 (added video-intro section + lazy-load video frame)

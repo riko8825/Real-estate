@@ -46,13 +46,20 @@ Real-estate/
 │       ├── build-section.md     ← /build-section <name> [after-id]
 │       └── new-component.md     ← /new-component <name> [type]
 ├── CLAUDE.md                    ← šis failas
-├── index.html                   ← 1572 eil., GYVAS — visas turinys + CSS + JS čia
+├── index.html                   ← ~1720 eil., GYVAS — visas turinys + CSS + JS čia
+├── sell-rent.html               ← ~970 eil., GYVAS — listings su 5-filter bar (Phase 1 placeholder)
+├── privacy-policy.html          ← GYVAS 2026-05-19 — Thai PDPA + GDPR (13 sekcijų, legal audit pending)
+├── terms.html                   ← GYVAS 2026-05-19 — agency role + foreign buyer (14 sekcijų, legal audit pending)
+├── sitemap.html                 ← GYVAS 2026-05-19 — visual sitemap su Live/Planned badges
 ├── assets/
 │   ├── css/
+│   │   ├── silktide-consent-manager.css  ← GYVAS 2026-05-19 (vendor, 12 KB)
 │   │   ├── variables.css        ← PLACEHOLDER (tuščias, su komentarais)
 │   │   ├── reset.css            ← PLACEHOLDER
 │   │   └── main.css             ← PLACEHOLDER
 │   ├── js/
+│   │   ├── silktide-consent-manager.js   ← GYVAS 2026-05-19 (vendor, 54 KB)
+│   │   ├── consent-init.js               ← GYVAS 2026-05-19 (projekt config — Empirra 1:1)
 │   │   └── main.js              ← PLACEHOLDER
 │   ├── images/.gitkeep          ← (real photos eventually)
 │   └── fonts/.gitkeep           ← (self-hosted fonts if needed)
@@ -188,8 +195,8 @@ Pilna design token sistema gyvena `:root` viršuje `<style>` bloko. **Visi nauji
 
 ### ❌ NIEKADA
 
-- **Nepilstyti turinio iš `index.html` į placeholder failus** (`assets/css/*.css`, `components/*.html`, `sections/*.html`) be aiškaus migracijos prašymo. Šie failai egzistuoja kaip scaffold'as, bet `index.html` lieka SOURCE OF TRUTH.
-- **Nepridėti `<link rel="stylesheet" href="assets/...">` ar `<script src="assets/...">` į `index.html`** — placeholder failai tušti, sulaužytų svetainę
+- **Nepilstyti turinio iš `index.html` į placeholder failus** (`components/*.html`, `sections/*.html`, ar nauji failai `assets/css/*.css`) be aiškaus migracijos prašymo. Šie failai egzistuoja kaip scaffold'as, bet `index.html` lieka SOURCE OF TRUTH.
+- **Nepridėti naujų `<link rel="stylesheet" href="assets/...">` ar `<script src="assets/...">` į `index.html`** kuriems atitinkamas placeholder failas tuščias — sulaužytų svetainę. **Išimtis** (gyvai veikia 2026-05-19): 3rd-party vendor lib'ai (Silktide Consent Manager) **PRIVALOMA** dėti per `<link>`/`<script src>`, ne inline. 53KB inline'inimas dvigubintų HTML failo dydį ir sulėtintų first paint. Vendor failai gyvena `/assets/css/silktide-*.css` ir `/assets/js/silktide-*.js` + `/assets/js/consent-init.js`.
 - **Nedėti framework'ų** (React, Vue, Tailwind, Bootstrap, jQuery) — viskas vanilla
 - **Nedėti build step** (npm, Vite, 11ty, Astro) — vartotojas pasirinko paprastumą prieš automation'ą
 - **Nehardcode'ti spalvų** — visada per `var(--c-*)`
@@ -227,17 +234,17 @@ Pilna design token sistema gyvena `:root` viršuje `<style>` bloko. **Visi nauji
 Šie dalykai **veikia kaip placeholder'iai** ir reikalauja realių duomenų prieš production:
 
 1. **Contact form** (`handleSubmit` `<script>` bloke) — tik rodo toast'ą, neperduoda duomenų niekur
-2. **Phone:** `+66 38 000 000`
-3. **WhatsApp:** `wa.me/6680000000` (4+ vietose)
-4. **LINE:** `@yourholidayvillas`
-5. **Email:** `info@yourholidayvillas.com`
-6. **Property photos:** visos 5 cards iš Unsplash — reikės realių villa nuotraukų
+2. ~~**Phone:** `+66 38 000 000`~~ ✅ resolved 2026-05-18 → `+66 82 495 5455`
+3. ~~**WhatsApp:** `wa.me/6680000000`~~ ✅ resolved 2026-05-18 → `wa.me/66824955455`
+4. ~~**LINE:** `@yourholidayvillas`~~ ✅ resolved 2026-05-18 → `poyinwonderland`
+5. ~~**Email:** `info@yourholidayvillas.com`~~ ✅ resolved 2026-05-19 → `chabaratree@gmail.com`
+6. **Property photos:** 12 cards iš Unsplash — 1 fixed (404 replacement 2026-05-19), 11 lieka CDN dependency rizika. Reikės self-host'inti realias villa nuotraukas į `/assets/images/`
 7. **Testimonials:** 4 placeholder reviews su Unsplash avatars
-8. **Footer links** (`href="#"`) — nukreipia į nieką
-9. **Privacy / Terms / Sitemap** puslapiai neegzistuoja
+8. **Some footer links** (`href="#"` likę properties/areas/info kolonkose) — nukreipia į nieką. Bottom legal links ✅ veikia (privacy/terms/sitemap)
+9. ~~**Privacy / Terms / Sitemap** puslapiai neegzistuoja~~ ✅ resolved 2026-05-19 — 3 puslapiai live (legal audit pending)
 10. **Favicon** — nėra `<link rel="icon">`
-11. **No `<meta name="robots">`, no `sitemap.xml`, no `robots.txt`** — SEO infra trūksta
-12. **No Open Graph image** — `og:image` meta praleista
+11. ~~**No `<meta name="robots">`**~~ ✅ live; **No `sitemap.xml`** (HTML sitemap ✅, XML version is Phase 2 backend); **No `robots.txt`** — SEO infra dalinai trūksta
+12. **No Open Graph image** — `og:image` URL'as nurodytas (`/assets/images/og-image-home.jpg`) bet failas 404
 
 Šių elementų **nekeisti tyliai** — kai užduotis liečia šias vietas, klausti vartotojo dėl realių verčių.
 
@@ -281,3 +288,7 @@ Vartotojas pasirinko single-file architektūrą **du kartus** (kartą po neigiam
 - 2026-05-18: 102 design tokens įdėti į `:root`
 - 2026-05-18: Placeholder scaffold (`/assets/`, `/components/`, `/sections/`) sukurtas kaip referencinis žemėlapis (NE source of truth)
 - 2026-05-18: `/memory/` su 5 docs failais sukurta
+- 2026-05-18: Sanity CMS Studio live (`real-estate-poy.sanity.studio`, project `t4802zzb`)
+- 2026-05-18: Deploy live pridaproperty.com (Vercel auto-deploy iš `main`)
+- 2026-05-19: Silktide cookie banner įdiegta (3 typai — Empirra config 1:1). `/assets/css/` ir `/assets/js/` placeholder folder'iai **pirmą kartą** turi realių failų (vendor lib'ams)
+- 2026-05-19: 3 nauji legal pages (`privacy-policy.html`, `terms.html`, `sitemap.html`) — AI-generated, needs legal audit

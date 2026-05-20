@@ -11,6 +11,9 @@
 |---|---|---|---|---|
 | `/` | `index.html` | Your Holiday Villas Pattaya \| Pool Villas, Condos & Houses For Sale & Rent | All-in-one landing — hero, properties, about, services, why-us, why-pattaya, buyer-guide, testimonials, locations, contact | ✅ done |
 | `/sell-rent.html` | `sell-rent.html` | Sell & Rent Properties in Pattaya \| Your Holiday Villas | Listings page with 5-filter bar (type/area/price/bedrooms/property), sort dropdown, 6 placeholder cards. CMS pending. | ⚠️ placeholder content + CMS pending |
+| `/privacy-policy.html` | `privacy-policy.html` | Privacy Policy \| Your Holiday Villas Pattaya | 13-section legal page — Thai PDPA + GDPR. Data controller, collected data, usage, cookies, rights, retention, contact. | ✅ live (needs legal audit) |
+| `/terms.html` | `terms.html` | Terms of Service \| Your Holiday Villas Pattaya | 14-section legal page — agency role, foreign buyer rules (condo/villa/land), fees, liability, jurisdiction (Thai). | ✅ live (needs legal audit) |
+| `/sitemap.html` | `sitemap.html` | Sitemap \| Your Holiday Villas Pattaya | 4-column visual sitemap with Live/Planned badges. Main pages, in-page anchors, planned properties/areas/guides, contact. | ✅ live |
 
 ## In-page anchors (current navigation)
 
@@ -54,9 +57,10 @@ These are linked from footer but lead nowhere. Either:
 | `/why-invest-pattaya` | Why Invest in Pattaya | Long-form investment thesis | 📋 planned |
 | `/property-valuation` | Free Property Valuation | Lead-gen form for owners wanting to sell | 📋 planned |
 | `/contact` | Contact Us | Standalone contact page (or just anchor to #contact) | 📋 planned |
-| `/privacy-policy` | Privacy Policy | GDPR / Thai PDPA compliance | 📋 planned |
-| `/terms` | Terms of Service | Legal terms | 📋 planned |
-| `/sitemap.xml` | Sitemap | SEO sitemap | 📋 planned |
+| `/privacy-policy.html` | Privacy Policy | GDPR / Thai PDPA compliance | ✅ live 2026-05-19 |
+| `/terms.html` | Terms of Service | Legal terms | ✅ live 2026-05-19 |
+| `/sitemap.html` | Sitemap (HTML) | User-friendly visual sitemap | ✅ live 2026-05-19 |
+| `/sitemap.xml` | Sitemap (XML, SEO) | SEO sitemap for search engines | 📋 planned (Phase 2 backend) |
 
 ## Individual property pages
 
@@ -70,21 +74,22 @@ Currently: property cards click → nowhere (no `<a>` wrapping the card, only he
 ## Pages roadmap priority
 
 **Phase 1 — fix current placeholder content:**
-1. Real photos (5 properties + hero + about + locations) — ⏳ poy.png done, rest pending
+1. Real photos (5 properties + hero + about + locations) — ⏳ poy.png done, 1/12 Unsplash 404 fixed 2026-05-19, rest pending
 2. Real testimonials (currently fake) — ⏳ pending
 3. Real listing counts in locations section — ⏳ pending
-4. Real contact info: WhatsApp ✅, LINE ✅, Phone ✅ (2026-05-18), Email ⏳ pending
+4. Real contact info: WhatsApp ✅, LINE ✅, Phone ✅, Email ✅ (chabaratree@gmail.com, 2026-05-19)
+5. Self-host all Unsplash photos as `/assets/images/*.jpg` (eliminate CDN 404 risk) — ⏳ pending
 
 **Phase 2 — backend infrastructure:**
 1. Contact form backend (Formspree / Netlify Forms / custom)
-2. Favicon, sitemap.xml, robots.txt, OG image
-3. GA4 or Plausible analytics
+2. Favicon, sitemap.xml (SEO), robots.txt, OG image
+3. GA4 or Plausible analytics (cookie banner ✅ already in place — onAccept hooks ready)
 
 **Phase 3 — content expansion:**
 1. `/foreign-buyer-guide` — top-priority SEO page for "buy property thailand" keywords
 2. `/why-invest-pattaya` — long-form for "invest pattaya real estate" keywords
 3. Area landing pages (Pratumnak, Jomtien, etc.) — long-tail SEO
-4. Privacy + Terms (legal requirement)
+4. Privacy + Terms — ✅ DONE 2026-05-19 (needs legal audit)
 
 **Phase 4 — listings system:**
 1. Individual property pages (or property detail modal)

@@ -4,6 +4,75 @@ Newest decisions on top. Format: `YYYY-MM-DD — Decision — Reason`.
 
 ---
 
+## 2026-05-20 — New section: video-intro (agent presentation video)
+
+**Decision:** Added a new `<section class="video-intro" id="video-intro">` between `#about` and `#services` — a 36-second presentation video of agent Poy.
+
+**Placement reasoning:** After `#about` (user already knows the agency → natural "see for yourself" continuation), before `#services` (video explains services visually → text section reinforces).
+
+**Technical approach:**
+- **Lazy load:** `<video preload="none">` with `data-src` attribute. Actual `src` assigned only on play click via JS — 0 bytes video traffic on initial page load.
+- **Click anywhere on frame triggers play** (intuitive UX); once playing, native `<video controls>` handles pause/seek. Native `<button>` handles Enter/Space keyboard — no custom keydown listener.
+- **Poster:** Unsplash luxury villa image (`photo-1613490493576-7fde63acd811`) — user chose this over real frame extraction.
+- **`object-fit: contain`** (not cover) on `<video>` — so portrait/landscape both fit fully without crop, black letterbox sits naturally on the black section bg.
+- New nav link "Story" added (desktop + mobile menu) — total 8 nav items.
+- New CSS keyframes named `videoPulse` and `dotBlink` — deliberately NOT `pulse` (existing `@keyframes pulse` powers `.map-pin`; same-name would override it).
+
+**Video file issue (resolved):** Original phone-recorded MP4 was 22 MB and played black-screen-with-audio in browsers — H.265/HEVC codec which browsers can't decode. Fix: user re-encoded via CloudConvert to H.264 → 4.4 MB file, plays correctly. Final file: `assets/videos/intro.mp4` (renamed from CloudConvert output, old 22 MB original deleted).
+
+**Two-round QA:** frontend-revizorius agent audit found 5 bugs (3 critical: keyframes collision, inline style, duplicate aria-label; 2 medium: missing focus-visible, mobile-menu overflow). All fixed. Re-audit caught 1 regression from the mobile-menu fix (`overflow-y: auto` + `justify-content: center` collision) — fixed with `justify-content: flex-start` + `padding: max(80px, 15vh)`.
+
+**Lesson:** Phone-recorded video is often H.265 — always re-encode to H.264 before using in `<video>`. Black screen + working audio = codec the browser can't decode.
+
+**Files changed:** `index.html` only (CSS block ~239 lines, section markup ~38 lines, JS ~27 lines, 2 nav links). New folder `assets/videos/`.
+
+---
+
+## 2026-05-19 — Session 4 close: Cookie banner + 3 legal pages + Empirra credit + email fix
+
+**Status snapshot:**
+- Cookie consent banner live (Silktide Consent Manager copied 1:1 from Empirra)
+- 3 new pages live: `privacy-policy.html`, `terms.html`, `sitemap.html`
+- Footer redesigned: 3-column grid (copyright / legal links / Empirra credit) — no overlap with floating WhatsApp/LINE buttons
+- Email placeholder resolved: `chabaratree@gmail.com` (3 spots across index.html + sell-rent.html)
+- Broken Unsplash image fixed (1 of 12 photos was 404)
+
+**Self-score: 7/10. Project completion: 75%.**
+
+**Architectural decisions made:**
+
+1. **Placeholder folders activated for first time** — `/assets/css/`, `/assets/js/` now contain real files (Silktide vendor lib + consent-init.js). This is a deliberate deviation from CLAUDE.md §7 "never include placeholders in index.html" rule, because 53KB 3rd-party vendor JS inline'd would double HTML size and slow first paint. Vendor libs MUST be separate files. CLAUDE.md §3 updated.
+
+2. **Cookie banner config = exact Empirra copy** — after 3 failed iterations attempting custom config (cookieTypes→consentTypes, text.banner→text.prompt, .stcm-reject-all vs .stcm-modal-reject-all), reverted to Empirra's 3-type setup (Necessary + Analytics + Advertising) with gtag hooks that no-op when gtag absent. Saves debugging time, prepares for GA4 install later.
+
+3. **3 legal pages built standalone** — each is a self-contained HTML file with full design token set copied inline. Total ~600 LOC of duplicated CSS per page (~1800 LOC duplicated across 3 pages). Accepted trade-off: maintains single-file-per-page convention from CLAUDE.md §7. Future shared CSS migration deferred until project structure decision (same as sell-rent.html).
+
+4. **HTML Sitemap, not XML** — `sitemap.html` is a user-friendly index page with Live/Planned badges. SEO `sitemap.xml` deferred to Phase 2 backend infra (per memory/pages.md priority).
+
+5. **Privacy/Terms content AI-generated** — Thai PDPA + GDPR best-practice templates. NOT legally audited. Flagged for client review with Thai property law firm before production-critical use.
+
+**Files changed:** 7 files (index.html, sell-rent.html, +3 new HTML pages, +3 new files in /assets/). Memory docs updated.
+
+**Open blockers (need user action):**
+- Privacy/Terms legal review by Thai property law firm
+- `og:image` file missing — pridaproperty.com/assets/images/og-image-home.jpg returns 404 (carry-over Session 3)
+- Sanity Editor invite for Poy (chabaratree@gmail.com) — carry-over Session 2
+- poy.png 1.43MB optimization (carry-over)
+- Git commit + push for this session NOT done (user did not confirm)
+- 11 of 12 Unsplash photos still CDN dependency risk (only 1 fixed reactively)
+
+**Next session should pick up:**
+1. Git commit + push Session 4 work (10 file changes)
+2. Phase 3 — wire sell-rent.html to Sanity API (replace 6 hardcoded cards with fetch from dataset t4802zzb)
+3. Add CORS origin https://pridaproperty.com in Sanity Manage when Phase 3 starts
+4. Self-host all 12 Unsplash photos as `/assets/images/*.jpg` (eliminate CDN 404 risk)
+5. Create `og-image-home.jpg` (1200×630) — fix broken social previews
+6. Consider extracting shared CSS from 5 HTML files (index, sell-rent, privacy, terms, sitemap)
+
+**Lesson:** Live Server hot-reloads HTML only, not /assets/* files. User saw stale CSS 3 times → looked like "no changes happened". Always tell user to hard-reload (Ctrl+Shift+R) after vendor/asset changes, or rely on Playwright headless verification (which loads fresh each time).
+
+---
+
 ## 2026-05-18 — Session 3 close: Deploy live on pridaproperty.com + placeholder cleanup
 
 **Status snapshot:**
@@ -208,8 +277,8 @@ These need user input before they can be resolved:
 | **Logo** | Wordmark only (current) or design real SVG mark | ❓ undecided |
 | **Property page strategy** | Individual pages, modal/lightbox, none (gallery only) | ❓ undecided |
 | **Currency display** | THB + USD only (current), or add EUR/GBP/RUB switcher | ❓ undecided |
-| **Cookie banner** | Required by GDPR/PDPA, not yet built | ❓ undecided |
-| **Privacy/Terms pages** | Templates from generator, custom-written, or AI-generated | ❓ undecided |
+| **Cookie banner** | ~~Required by GDPR/PDPA, not yet built~~ | ✅ RESOLVED 2026-05-19 — Silktide Consent Manager (Empirra-copy config) |
+| **Privacy/Terms pages** | ~~Templates, custom-written, or AI-generated~~ | ✅ RESOLVED 2026-05-19 — AI-generated (Thai PDPA + GDPR), needs legal audit |
 
 ---
 
