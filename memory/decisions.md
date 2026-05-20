@@ -4,6 +4,46 @@ Newest decisions on top. Format: `YYYY-MM-DD — Decision — Reason`.
 
 ---
 
+## 2026-05-20 — Session 5 close: video-intro section live + Session 4 work shipped
+
+**Status snapshot:**
+- New `#video-intro` presentation video section live on `index.html` (between About and Services)
+- Session 4 work (cookie banner + 3 legal pages + footer redesign) — finally committed + pushed (was uncommitted since 2026-05-19)
+- Commit `8647786` pushed to `origin/main` (14 files, +4359/-37) → Vercel auto-deploy triggered
+
+**Self-score: 8/10. Project completion: ~78%.**
+
+**What was done this session:**
+- Built `#video-intro` section — see detailed decision entry below (2026-05-20 video-intro)
+- 2 rounds of frontend-revizorius agent QA — 6 bugs found and fixed
+- Video codec fix: user re-encoded H.265→H.264 via CloudConvert (22MB→4.4MB)
+- Memory docs updated: `decisions.md`, `components.md`
+- Single commit `8647786` bundled this session + the previously-uncommitted Session 4 work
+
+**Files changed:** `index.html`, `memory/components.md`, `memory/decisions.md` (this session) + `CLAUDE.md`, `memory/pages.md`, `sell-rent.html`, 3 legal pages, 3 Silktide assets, `assets/videos/intro.mp4` (Session 4 carry-over).
+
+**Known issues / shortcuts this session:**
+- `intro.mp4` (4.4 MB) committed as binary blob in git — not ideal. Consider Git LFS or CDN (Vercel Blob / Cloudflare Stream) if video changes often.
+- One commit merged 2 unrelated work blocks (Session 4 + Session 5) because Session 4 was never committed — atomic commits would have been cleaner.
+- Production deploy NOT verified — Vercel auto-deploy triggered but `pridaproperty.com` not checked for correct video rendering / MIME-type after push.
+
+**Open blockers (carry-over, need user action):**
+- Verify `pridaproperty.com` shows video-intro section correctly post-deploy
+- Privacy/Terms legal review by Thai property law firm (carry-over Session 4)
+- `og:image` file missing — returns 404, social previews broken (carry-over Session 3)
+- Sanity Editor invite for Poy (chabaratree@gmail.com) — carry-over Session 2
+- 11 of 12 Unsplash photos still CDN dependency risk
+- Contact form has NO backend — conversion channel non-functional
+
+**Next session should pick up:**
+1. Verify production deploy — open `pridaproperty.com`, test video-intro section + play interaction
+2. Contact form backend (Formspree / Web3Forms / custom) — highest-value missing piece
+3. Phase 3 — wire `sell-rent.html` to Sanity API (replace 6 hardcoded cards, dataset `t4802zzb`)
+4. Create `og-image-home.jpg` (1200×630) — fix broken social previews
+5. Self-host 12 Unsplash photos to `/assets/images/`
+
+---
+
 ## 2026-05-20 — New section: video-intro (agent presentation video)
 
 **Decision:** Added a new `<section class="video-intro" id="video-intro">` between `#about` and `#services` — a 36-second presentation video of agent Poy.
